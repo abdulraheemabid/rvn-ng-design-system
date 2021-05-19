@@ -3,8 +3,8 @@
 @import "./variables/theme";
 
 //TODO: Optimize: primeng will make it very bulky, try to remove or replace it
-@import "../../../../../node_modules/primeng/resources/themes/saga-blue/theme.css";
-@import "../../../../../node_modules/primeicons/primeicons.css";
+@import "../../../primeng/resources/themes/saga-blue/theme.css";
+@import "../../../primeicons/primeicons.css";
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
