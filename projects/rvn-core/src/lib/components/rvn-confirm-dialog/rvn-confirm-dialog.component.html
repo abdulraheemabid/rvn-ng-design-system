@@ -1,0 +1,18 @@
+<div class="container rvn-confirm-dialog">
+    <h2 mat-dialog-title>{{config.title}}</h2>
+
+    <mat-dialog-content class="mat-typography">
+        <p *ngFor="let message of config.messages">
+            {{message}}
+        </p>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <rvn-button [config]="config.noButtonConfig" [mat-dialog-close]="false" mat-dialog-close>
+            {{config.noButtonMessage}}
+        </rvn-button>
+        <rvn-button [config]="config.yesButtonConfig" [mat-dialog-close]="true" cdkFocusInitial>
+            {{config.yesButtonMessage}}
+        </rvn-button>
+    </mat-dialog-actions>
+</div>

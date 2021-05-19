@@ -1,0 +1,27 @@
+<div class="container rvn-ui-control" [ngClass]="config?.styleVersion">
+    <span *ngIf="config?.styleVersion == 'v1'" class="label">{{config?.label}}:</span>
+
+    <mat-form-field class="form-field" [appearance]="formFieldAppearance | async">
+        <mat-label *ngIf="config?.styleVersion == 'v2' && config?.label" class="label">{{config?.label}}</mat-label>
+
+        <mat-chip-list #chipList>
+            <mat-chip *ngFor="let option of selectedOptions" [selectable]="false" [removable]="true"
+                (removed)="remove(option)">
+                {{option.value}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+            <input [placeholder]="config?.placeholder" #inputElement [formControl]="inputFormControl"
+                [matAutocomplete]="auto" [matChipInputFor]="chipList" [required]="config?.required">
+        </mat-chip-list>
+        
+        <mat-error *ngIf="showError()">{{config.requiredErrorMessage}}</mat-error>
+        <mat-hint *ngIf="config?.hint">{{config?.hint}}</mat-hint>
+       
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option.value}}
+            </mat-option>
+        </mat-autocomplete>
+        
+    </mat-form-field>
+</div>

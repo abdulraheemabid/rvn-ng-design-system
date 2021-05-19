@@ -1,0 +1,6 @@
+<mat-nav-list class="rvn-nav-list">
+    <ng-container *ngFor="let item of config.list">
+        <a mat-list-item [routerLink]="[item.routeURL]">{{item.displayName}}</a>
+        <rvn-divider class="links-divider" *ngIf="item.showDividerBelow"></rvn-divider>
+    </ng-container>
+</mat-nav-list>

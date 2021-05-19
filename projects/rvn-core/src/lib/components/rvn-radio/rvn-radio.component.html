@@ -1,0 +1,13 @@
+<span class="container rvn-ui-control" [ngClass]="config?.styleVersion">
+
+    <span class="label">{{config?.label}}:</span>
+    <mat-radio-group class="radio-group" [name]="config?.label" [formControl]="formControl"
+        [required]="config?.required">
+        <mat-radio-button class="radio-btn" *ngFor="let option of config?.radioOptions" [value]="option">
+            {{option.value}}
+        </mat-radio-button>
+        <mat-error class="error-msg" *ngIf="formControl.hasError('required') && formControl.dirty">
+            {{config?.requiredErrorMessage}}
+        </mat-error>
+    </mat-radio-group>
+</span>

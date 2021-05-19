@@ -1,0 +1,29 @@
+<div class="container rvn-list">
+    <mat-list *ngIf="config.dense" dense class="dense">
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+    </mat-list>
+
+    <mat-list *ngIf="!config.dense">
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+    </mat-list>
+</div>
+
+<ng-template #content>
+    <mat-list-item *ngFor="let listItem of config.list">
+
+        <mat-icon matListIcon *ngIf="config.icon">{{config.icon}}</mat-icon>
+
+        <span matLine class="text-bold"> {{listItem[config.lineOneKey]}} </span>
+
+        <span matLine class="text-caption color-grey" *ngIf="config.lineTwoKey">
+            {{listItem[config.lineTwoKey]}}
+        </span>
+
+        <span *ngIf="config.actionTemplateRef">
+            <ng-container *ngTemplateOutlet="config.actionTemplateRef; context: {listItem: listItem}"></ng-container>
+        </span>
+
+        <rvn-divider></rvn-divider>
+
+    </mat-list-item>
+</ng-template>

@@ -1,0 +1,10 @@
+@import "./spacing";
+
+$form-field-width: 70%;
+$btn-min-width: 120px;
+$ui-control-min-width: 300px;
+$ui-control-height: 78px;
+$border-width: 1px;
+$border-width-l: 2px;
+$border-width-xl: 5px;
+$root-node-min-width: calc(#{$btn-min-width} + #{$space-xxl});

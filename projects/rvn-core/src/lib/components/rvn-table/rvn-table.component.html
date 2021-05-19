@@ -1,0 +1,101 @@
+<div class="container rvn-table" *ngIf="initDone">
+
+    <!-- filter -->
+    <rvn-input class="filter" *ngIf="config.enableFilter && config.useComponentFilter"
+        [config]="{suffixIcon: 'search', label:'Filter', styleVersion: 'v2'}" [formControl]="config.filterInputFC">
+    </rvn-input>
+
+    <table mat-table fixedLayout="true" [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8"
+        matSort>
+
+        <!-- colum def -->
+        <ng-container *ngFor="let column of columnsToDisplayNames; let i = index" matColumnDef="{{column}}"
+            [sticky]="config.stickColumnsAtStartIndexes.includes(i)"
+            [stickyEnd]="config.stickColumnsAtEndIndexes.includes(i)">
+
+            <!-- header template -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header [class]="getJustifyContentClassByTextAlign(i)">
+                {{getColumDisplayName(column)}} </th>
+
+
+            <td mat-cell *matCellDef="let row" [style.text-align]="config.columnsToDisplay[i].textAlign">
+                <!-- custom column template -->
+                <ng-container *ngIf="config.columnsToDisplay[i].customTemplate">
+                    <ng-template
+                        *ngTemplateOutlet="config.columnsToDisplay[i].customTemplate; context: {row:row, column:column, value:row[column] }">
+                    </ng-template>
+                </ng-container>
+
+                <!-- normal column text -->
+                <ng-container *ngIf="!config.columnsToDisplay[i].customTemplate">
+                    {{row[column]}}
+                </ng-container>
+
+            </td>
+
+        </ng-container>
+
+
+        <!-- expanded row template -->
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let row" [attr.colspan]="columnsToDisplayNames.length"
+                [class.expandedRowContainer]="row == expandedRow" [class.grey-border]="row == expandedRow">
+                <div class="row-detail" [@detailExpand]="row == expandedRow ? 'expanded' : 'collapsed'">
+                    <div class="inner">
+                        <ng-container *ngIf="config.expandedRowTemplate">
+                            <ng-container *ngTemplateOutlet="config.expandedRowTemplate; context: {row: row}">
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+
+
+        <!-- header row -->
+        <tr mat-header-row class="header-row" *matHeaderRowDef="columnsToDisplayNames; sticky: true"></tr>
+
+
+        <!-- data row -->
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplayNames;" class="row" (mouseover)="row.hover = true"
+            (mouseout)="row.hover = false"
+            [class.grey-bg]="config.expandedRowTemplate  && (row.hover == true || expandedRow === row)"
+            [class.expanded-row]="expandedRow === row" [class.pointer]="config.expandedRowTemplate"
+            (click)="rowClick(row)">
+        </tr>
+
+
+        <!-- expanded row -->
+        <ng-container *ngIf="config.expandedRowTemplate">
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+        </ng-container>
+
+
+        <!-- no data message on filter -->
+        <ng-container
+            *ngIf="config.enableFilter && (config.filterInputFC.value !== null && config.filterInputFC.value.trim() !== '')">
+            <div class="no-data color-warn" *matNoDataRow>
+                <td [attr.colspan]="columnsToDisplayNames.length">
+                    {{config.noDataOnFilterMessage}}
+                </td>
+
+            </div>
+        </ng-container>
+
+
+        <!-- no data message -->
+        <div class="no-data color-warn" *matNoDataRow>
+            <td [attr.colspan]="columnsToDisplayNames.length">
+                {{config.noDataMessage}}
+            </td>
+        </div>
+
+
+    </table>
+
+
+    <!-- paginator -->
+    <mat-paginator class="paginator" *ngIf="config.enablePagination" [pageSizeOptions]="config.pageOptions"
+        showFirstLastButtons>
+    </mat-paginator>
+</div>

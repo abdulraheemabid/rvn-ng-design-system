@@ -1,0 +1,21 @@
+@import '../../styles/variables/spacing';
+@import '../../styles/variables/width';
+
+.container {
+    &.v2 {
+      .form-field {
+        width: 100%;
+      }
+    }
+  
+    &.v1 {
+      display: flex;
+      
+      justify-content: space-between;
+  
+      .form-field {
+        width: $form-field-width;
+      }
+    }
+  }
+  

@@ -1,0 +1,36 @@
+<div class="container">
+    <mat-card class="rvn-card card">
+
+        <mat-card-header class="card-header">
+            <mat-icon mat-card-avatar class="header-icon" *ngIf="config?.headerIcon">
+                {{config?.headerIcon}}
+            </mat-icon>
+
+            <mat-card-title *ngIf="config?.title" #title>
+                {{config?.title}}
+            </mat-card-title>
+
+            <mat-card-subtitle *ngIf="config?.subtitle">
+                {{config?.subtitle}}
+            </mat-card-subtitle>
+
+            <div class="header-action">
+                <ng-content select="[headerAction]"></ng-content>
+            </div>
+
+        </mat-card-header>
+
+        <rvn-divider *ngIf="showHeaderDivider"></rvn-divider>
+
+        <mat-card-content class="content">
+
+            <ng-content select="[content]"></ng-content>
+
+            <div class="footer">
+                <ng-content select="[footer]"></ng-content>
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+</div>

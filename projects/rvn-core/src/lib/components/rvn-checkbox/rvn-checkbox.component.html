@@ -1,0 +1,19 @@
+<span class="container rvn-ui-control" [ngClass]="config?.styleVersion" [formGroup]="formGroup"
+    *ngIf="config.mode === 'standard'">
+
+    <span class="label">{{config?.label}}:</span>
+    <span class="checkbox-group" formArrayName="checkboxArray">
+        <mat-checkbox class="checkbox" *ngFor="let option of config?.checkboxOptions; let i = index"
+            [formControlName]="i" [value]="option.key">
+            {{option.value}}
+        </mat-checkbox>
+        <mat-error class="error-msg" *ngIf="formControl.hasError('required') && formControl.dirty">
+            {{config?.requiredErrorMessage}}
+        </mat-error>
+    </span>
+
+</span>
+
+<span *ngIf="config.mode === 'boolean-display'">
+    <mat-checkbox class="checkbox" [checked]="checked" disabled="true"></mat-checkbox>
+</span>

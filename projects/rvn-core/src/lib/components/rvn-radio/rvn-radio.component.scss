@@ -1,0 +1,42 @@
+@import "../../styles/variables/spacing";
+@import "../../styles/variables/width";
+
+.container {
+    display: flex;
+    justify-content: space-between;
+
+    .radio-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    &.v1 {
+        .radio-group {
+            width: $form-field-width;
+        }
+        .radio-btn {
+            padding-right: $space-s;
+        }
+    }
+
+    &.v2 {
+        align-items: normal;
+        .radio-group {
+            flex-direction: column;
+        }
+        .radio-btn {
+            padding: $space-s 0px;
+        }
+    }
+
+    &.v3 {
+        .radio-group {
+            flex-direction: column;
+        }
+        .radio-btn {
+            padding: $space-s 0px;
+        }
+    }
+}

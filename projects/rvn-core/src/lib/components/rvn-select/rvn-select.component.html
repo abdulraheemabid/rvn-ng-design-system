@@ -1,0 +1,20 @@
+<span class="container rvn-ui-control" [ngClass]="config?.styleVersion">
+
+    <span *ngIf="config?.styleVersion == 'v1'" class="label">{{config?.label}}:</span>
+
+    <mat-form-field class="form-field" [appearance]="formFieldAppearance | async" [ngClass]="{'disabled': disabled}">
+        <mat-label class="label">
+            <span *ngIf="config?.styleVersion == 'v2' && config?.label"> {{config?.label}}</span>
+            <span *ngIf="config?.styleVersion == 'v1' && config?.placeholder">{{config?.placeholder}}</span>
+        </mat-label>
+        <mat-select [disabled]="disabled" [formControl]="formControl"
+            [required]="config?.required">
+            <mat-option *ngFor="let option of config?.selectOptions" [value]="option">
+                {{option.value}}
+            </mat-option>
+        </mat-select>
+        <mat-hint *ngIf="config?.hint">{{config?.hint}}</mat-hint>
+        <mat-error *ngIf="formControl?.hasError('required')">{{config?.requiredErrorMessage}}</mat-error>
+    </mat-form-field>
+
+</span>

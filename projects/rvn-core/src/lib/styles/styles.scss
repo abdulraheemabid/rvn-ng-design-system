@@ -1,0 +1,291 @@
+@import "./variables/spacing";
+@import "./variables/width";
+@import "./variables/theme";
+
+//TODO: Optimize: primeng will make it very bulky, try to remove or replace it
+@import "../../../../../node_modules/primeng/resources/themes/saga-blue/theme.css";
+@import "../../../../../node_modules/primeicons/primeicons.css";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Typography
+
+.text-bold {
+    @extend .mat-body-2;
+}
+
+.text-caption {
+    @extend .mat-small;
+}
+
+.text-display-1 {
+    @extend .mat-display-1;
+}
+
+.text-display-2 {
+    @extend .mat-display-2;
+}
+
+.text-display-3 {
+    @extend .mat-display-3;
+}
+
+.text-display-4 {
+    @extend .mat-display-4;
+}
+
+.text-body {
+    @extend .mat-body;
+}
+
+.text-body2 {
+    @extend .mat-body-2;
+}
+
+.snack-bar {
+    &.top {
+        //TODO: remove hardcoding. height of topbar + 10px
+        margin-top: 75px;
+    }
+
+    &.center {
+        display: flex !important;
+        justify-content: center;
+    }
+}
+
+.rvn-ui-control {
+    min-height: $ui-control-height;
+    display: flex;
+    align-items: center;
+    margin: $space-s 0px;
+
+    .error-msg {
+        //copied from mat design
+        font-size: 75%;
+    }
+
+    .mat-form-field-wrapper {
+        .mat-error {
+            //TODO: remove hardcoding, got this value from material class
+            padding-top: 1.34375em;
+        }
+    }
+
+    .mat-form-field-appearance-outline {
+        .mat-form-field-wrapper {
+            padding-bottom: 0;
+        }
+    }
+}
+
+.rvn-card {
+    .card-header {
+        @extend .primary-bg;
+        // on dark theme its white by default, needed for light theme
+        @extend .color-white;
+    }
+}
+
+.rvn-accordion {
+    .accordion-header {
+        @extend .primary-bg;
+        .accordion-header-title {
+            // on dark theme its white by default, needed for light theme
+            @extend .color-white;
+        }
+    }
+}
+
+.rvn-table {
+    .header-row {
+        //@extend .primary-bg;
+    }
+}
+
+.rvn-menu-items {
+    .rvn-ui-control {
+        min-height: auto;
+    }
+}
+
+.rvn-list {
+    .dense {
+        .mat-icon {
+            font-size: 20px;
+        }
+    }
+    .mat-list-item-content {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+.rvn-toolbar {
+    &.main-toolbar {
+        position: sticky;
+        top: 0;
+        // 3 worked, but mat table header is 100
+        z-index: 101;
+        padding: 0 5vh;
+
+        .content {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.rvn-icon-button-small {
+    button {
+        height: max-content;
+    }
+    .mat-icon {
+        font-size: 20px;
+    }
+}
+
+.rvn-org-chart-node {
+    width: $btn-min-width;
+
+    i {
+        font-size: 0.7rem;
+    }
+
+    &.rvn-org-chart-root-node {
+        width: $root-node-min-width;
+    }
+
+    &.rvn-org-chart-leaf-node {
+    }
+}
+
+// Colors
+
+.color-primary {
+    color: $light-primary !important;
+}
+
+.color-accent {
+    color: $light-accent !important;
+}
+
+.color-warn {
+    color: $light-warn !important;
+}
+
+.color-white {
+    color: $light-white !important;
+}
+
+.color-grey {
+    color: $light-grey !important;
+}
+
+.color-foreground {
+    color: $light-foreground !important;
+}
+
+.primary-bg {
+    background-color: $light-primary !important;
+}
+
+.accent-bg {
+    background-color: $light-accent !important;
+}
+
+.warn-bg {
+    background-color: $light-warn !important;
+}
+
+.white-bg {
+    background-color: $light-white !important;
+}
+
+.grey-bg {
+    background-color: $light-grey !important;
+}
+
+.background-bg {
+    background-color: $light-background !important;
+}
+
+.foreground-bg {
+    background-color: $light-foreground !important;
+}
+
+.grey-border {
+    border-color: $light-grey !important;
+}
+
+// Dark theme specific
+
+.app-dark-theme {
+    .color-primary {
+        color: $dark-primary !important;
+    }
+
+    .color-accent {
+        color: $dark-accent !important;
+    }
+
+    .color-warn {
+        color: $dark-warn !important;
+    }
+
+    .color-white {
+        color: $dark-white !important;
+    }
+
+    .color-grey {
+        color: $dark-grey !important;
+    }
+
+    .color-foreground {
+        color: $dark-foreground !important;
+    }
+
+    .primary-bg {
+        background-color: $dark-primary !important;
+    }
+
+    .accent-bg {
+        background-color: $dark-accent !important;
+    }
+
+    .warn-bg {
+        background-color: $dark-warn !important;
+    }
+
+    .white-bg {
+        background-color: $dark-white !important;
+    }
+
+    .grey-bg {
+        background-color: $dark-grey !important;
+    }
+
+    .background-bg {
+        background-color: $dark-background !important;
+    }
+
+    .grey-border {
+        border-color: $dark-grey !important;
+    }
+
+    .foreground-bg {
+        background-color: $dark-foreground !important;
+    }
+}

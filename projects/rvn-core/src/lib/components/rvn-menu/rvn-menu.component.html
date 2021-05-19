@@ -1,0 +1,11 @@
+<div class="container">
+
+    <div [matMenuTriggerFor]="menu">
+        <ng-content select="[button]"></ng-content>
+    </div>
+
+    <mat-menu #menu="matMenu">
+        <ng-content select="[content]"></ng-content>
+    </mat-menu>
+    
+</div>

@@ -1,0 +1,60 @@
+@import "~@angular/material/theming";
+
+// Define the default theme (same as the example above).
+$app-light-primary-palette: mat-palette($mat-indigo);
+$app-light-accent-palette: mat-palette($mat-amber, A200, A100, A400);
+$app-light-warn-palette: mat-palette($mat-red, A200, A100, A400);
+$app-light-theme: mat-light-theme(
+  (
+    color: (
+      primary: $app-light-primary-palette,
+      accent: $app-light-accent-palette,
+      warn: $app-light-warn-palette
+    ),
+  )
+);
+
+// Define an alternate dark theme.
+$app-dark-primary-palette: mat-palette($mat-indigo);
+$app-dark-accent-palette: mat-palette($mat-amber, A200, A100, A400);
+$app-dark-warn-palette: mat-palette($mat-red, A200, A100, A400);
+$app-dark-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $app-dark-primary-palette,
+      accent: $app-dark-accent-palette,
+      warn: $app-dark-warn-palette
+    ),
+  )
+);
+
+// Include the default theme styles (color and default density)
+@include angular-material-theme($app-light-theme);
+
+// Include the dark color styles inside of a block with a CSS class. You can make this
+// CSS class whatever you want. In this example, any component inside of an element with
+// `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
+.app-dark-theme {
+  @include angular-material-color($app-dark-theme);
+}
+
+$light-primary: mat-color($app-light-primary-palette);
+$dark-primary: mat-color($app-dark-primary-palette);
+
+$light-accent: mat-color($app-light-accent-palette);
+$dark-accent: mat-color($app-dark-accent-palette);
+
+$light-warn: mat-color($app-light-warn-palette);
+$dark-warn: mat-color($app-dark-warn-palette);
+
+$light-grey: mat-color(mat-palette($mat-grey));
+$dark-grey: mat-color(mat-palette($mat-grey));
+
+$light-white: $light-primary-text;
+$dark-white: $light-primary-text;
+
+$light-background:  map-get($mat-light-theme-background, background);
+$dark-background: map-get($mat-dark-theme-background, background);
+
+$light-foreground:  map-get($mat-light-theme-foreground, text);
+$dark-foreground: map-get($mat-dark-theme-foreground, text);

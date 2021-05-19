@@ -1,0 +1,8 @@
+@import "../../styles/variables/spacing";
+
+.container {
+    mat-dialog-content {
+        padding-top: $space-m;
+        padding-bottom: $space-m;
+    }
+}

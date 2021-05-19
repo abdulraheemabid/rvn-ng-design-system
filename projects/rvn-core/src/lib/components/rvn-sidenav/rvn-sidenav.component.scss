@@ -1,0 +1,19 @@
+.rvn-sidenav-container {
+    height: 100%;
+
+    .sidenav {
+        width: 200px;
+    }
+
+    .sidenav .mat-toolbar,
+    .sidenav {
+        background: inherit;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+}

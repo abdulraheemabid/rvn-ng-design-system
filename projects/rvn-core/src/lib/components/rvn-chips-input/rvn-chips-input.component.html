@@ -1,0 +1,20 @@
+<div class="container rvn-ui-control" [ngClass]="config?.styleVersion">
+
+    <span *ngIf="config?.styleVersion == 'v1'" class="label">{{config?.label}}:</span>
+
+    <mat-form-field class="form-field" [appearance]="formFieldAppearance | async">
+        <mat-label *ngIf="config?.styleVersion == 'v2' && config?.label" class="label">{{config?.label}}</mat-label>
+
+        <mat-chip-list #chipList>
+            <mat-chip *ngFor="let option of selectedOptions" [removable]="true" (removed)="remove(option)">
+                {{option}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+            <input [placeholder]="config?.placeholder" #inputElement [required]="config?.required"
+                [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="true" (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+        <mat-hint *ngIf="config?.hint">{{config?.hint}}</mat-hint>
+        <mat-error *ngIf="formControl?.hasError('required')">{{config?.requiredErrorMessage}}</mat-error>
+    </mat-form-field>
+</div>

@@ -1,0 +1,22 @@
+<span class="container rvn-ui-control" [ngClass]="config?.styleVersion">
+
+    <ng-container *ngIf="config?.styleVersion == 'v1'">
+        <span class="label" *ngIf="config?.label">{{config?.label}}:</span>
+
+        <mat-slide-toggle [formControl]="formControl">
+            <mat-error class="error-msg" *ngIf="formControl.hasError('required') && formControl.dirty">
+                {{config?.requiredErrorMessage}}
+            </mat-error>
+        </mat-slide-toggle>
+    </ng-container>
+
+    <ng-container *ngIf="config?.styleVersion == 'v2'">
+        <mat-slide-toggle [formControl]="formControl">
+            {{config?.label}}
+            <mat-error class="error-msg" *ngIf="formControl.hasError('required') && formControl.dirty">
+                {{config?.requiredErrorMessage}}
+            </mat-error>
+        </mat-slide-toggle>
+    </ng-container>
+
+</span>

@@ -1,0 +1,14 @@
+<span class="container rvn-ui-control" [ngClass]="config?.styleVersion">
+
+    <span *ngIf="config?.styleVersion == 'v1'" class="label">{{config?.label}}:</span>
+
+    <mat-form-field class="form-field" [appearance]="formFieldAppearance | async">
+        <mat-label *ngIf="config?.styleVersion == 'v2' && config?.label" class="label">{{config?.label}}</mat-label>
+        <input matInput [formControl]="formControl" [placeholder]="config?.placeholder" [type]="config?.type"
+            [required]="config?.required">
+        <mat-icon matSuffix *ngIf="config?.suffixIcon">{{config?.suffixIcon}}</mat-icon>
+        <mat-hint *ngIf="config?.hint">{{config?.hint}}</mat-hint>
+        <mat-error *ngIf="formControl?.hasError('required')">{{config?.requiredErrorMessage}}</mat-error>
+    </mat-form-field>
+
+</span>

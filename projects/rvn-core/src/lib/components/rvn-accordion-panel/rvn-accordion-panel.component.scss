@@ -1,0 +1,10 @@
+@import '../../styles/variables/spacing';
+
+.container{
+    padding: $space-s 0px;
+
+    .content{
+        padding-top: $space-m;
+        display: block;
+    }
+}

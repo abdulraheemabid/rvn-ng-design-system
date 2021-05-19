@@ -1,0 +1,22 @@
+@import "../../styles/variables/spacing";
+@import '../../styles/variables/width';
+
+.btn {
+    &.text-btn {
+        min-width: $btn-min-width;
+    }
+
+    &.mat-button-disabled {
+        cursor: not-allowed;
+    }
+
+    &.icon-text {
+        mat-icon {
+            margin-right: $space-m;
+        }
+    }
+
+    &.fab {
+        min-width: initial;
+    }
+}

@@ -1,0 +1,42 @@
+@import "../../styles/variables/spacing";
+@import "../../styles/variables/width";
+
+.container {
+    display: flex;
+    justify-content: space-between;
+
+    .checkbox-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    &.v1 {
+        .checkbox {
+            padding-right: $space-s;
+        }
+        .checkbox-group {
+            width: $form-field-width;
+        }
+    }
+
+    &.v2 {
+        align-items: normal;
+        .checkbox-group {
+            flex-direction: column;
+        }
+        .checkbox {
+            padding: $space-s 0px;
+        }
+    }
+
+    &.v3 {
+        .checkbox-group {
+            flex-direction: column;
+        }
+        .checkbox {
+            padding: $space-s 0px;
+        }
+    }
+}

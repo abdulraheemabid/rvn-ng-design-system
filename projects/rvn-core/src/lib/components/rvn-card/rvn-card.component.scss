@@ -1,0 +1,39 @@
+@import "../../styles/variables/spacing";
+
+.container {
+    height: 100%;
+
+    .header-action {
+        margin-left: auto;
+    }
+
+    .card {
+        padding: 0;
+
+        .card-header {
+            padding: $space-l;
+            ::ng-deep {
+                .mat-card-header-text,
+                .mat-card-title {
+                    margin: 0;
+                }
+
+                .mat-card-subtitle {
+                    margin-top: $space-xs;
+                    margin-bottom: 0;
+                }
+            }
+
+            .header-icon {
+                margin-right: $space-m;
+            }
+        }
+
+        .content {
+            padding: $space-l;
+            .footer {
+                margin-top: $space-xl;
+            }
+        }
+    }
+}

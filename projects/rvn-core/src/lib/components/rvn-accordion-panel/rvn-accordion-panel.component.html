@@ -1,0 +1,27 @@
+<div class="container">
+    <mat-expansion-panel [hideToggle]="config?.hideToggle" [expanded]="config?.expanded" [disabled]="config?.disabled">
+        <mat-expansion-panel-header class="accordion-header">
+            <mat-panel-title class="accordion-header-title">
+                <ng-content select="[title]"></ng-content>
+            </mat-panel-title>
+
+            <mat-panel-description>
+                <ng-content select="[description]"></ng-content>
+            </mat-panel-description>
+
+            <ng-content select="[headerContent]"></ng-content>
+
+        </mat-expansion-panel-header>
+
+        <rvn-divider *ngIf="config?.hasHeader"></rvn-divider>
+
+        <span class="content">
+            <ng-content select="[content]"></ng-content>
+        </span>
+
+        <mat-action-row *ngIf="config?.hasActionContent">
+            <ng-content select="[actionContent]"></ng-content>
+        </mat-action-row>
+
+    </mat-expansion-panel>
+</div>
