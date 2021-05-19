@@ -8,9 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "publish-core:patch": "cd projects/rvn-core && npm version patch && ng build rvn-core --prod && cd ../../dist/rvn-core && npm publish",
-    "publish-core:minor": "cd projects/rvn-core && npm version minor && ng build rvn-core --prod && cd ../../dist/rvn-core && npm publish",
-    "publish-core:major": "cd projects/rvn-core && npm version major && ng build rvn-core --prod && cd ../../dist/rvn-core && npm publish"
+    "publish-core:patch": "cd projects/rvn-core && npm version patch && ng build rvn-core --prod && xcopy \"./src/lib/styles\" \"../../dist/rvn-core/styles\" /E /I /Y && cd ../../dist/rvn-core && npm publish",
+    "publish-core:minor": "cd projects/rvn-core && npm version minor && ng build rvn-core --prod && xcopy \"./src/lib/styles\" \"../../dist/rvn-core/styles\" /E /I /Y && cd ../../dist/rvn-core && npm publish",
+    "publish-core:major": "cd projects/rvn-core && npm version major && ng build rvn-core --prod && xcopy \"./src/lib/styles\" \"../../dist/rvn-core/styles\" /E /I /Y && cd ../../dist/rvn-core && npm publish"
   },
   "dependencies": {
     "@angular/animations": "~11.2.12",
