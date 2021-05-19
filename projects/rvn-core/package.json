@@ -1,19 +1,17 @@
 {
-  "name": "@abdulraheemabid/rvn-core",
-  "version": "0.0.1",
-  "scripts": {
-    "publish": "ng build --prod && npm publish",
-    "publish:patch": "npm version patch && ng build --prod && npm publish",
-    "publish:minor": "npm version minor && ng build --prod && npm publish",
-    "publish:major": "npm version major && ng build --prod && npm publish"
+  "name": "@abdulraheemabid/rvn-pkg-ng-core",
+  "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abdulraheemabid/rvn-ng-design-system.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/abdulraheemabid"
+    "registry": "https://npm.pkg.github.com"
   },
   "peerDependencies": {
-    "@angular/common": "^11.2.14",
-    "@angular/core": "^11.2.14",
-    "@angular/material": "^11.2.12",
+    "@angular/common": "~11.2.10",
+    "@angular/core": "~11.2.10",
+    "@angular/material": "^11.2.9",
     "primeicons": "^4.1.0",
     "primeng": "^11.4.2"
   },
