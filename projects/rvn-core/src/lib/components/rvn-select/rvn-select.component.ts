@@ -4,8 +4,19 @@ import { of } from 'rxjs';
 import { RvnStyleService } from '../../services/style/style.service';
 import { CustomFormControlValueAccessor } from '../../utils/custom-form-control-value-accessor';
 import { isKeyValue, isNullOrUndefined } from '../../utils/funtions.util';
+import { KeyValue } from "@angular/common";
+import { FormFieldAppearance } from "../../services/style/style.service";
 
-import { RvnSelectInput } from './rvn-select.input';
+export interface RvnSelectInput {
+    label: string;
+    placeholder?: string;
+    required?: boolean;
+    hint?: string;
+    requiredErrorMessage?: string;
+    selectOptions: KeyValue<any, any>[];
+    styleVersion?: "v1" | "v2";
+    appearance?: FormFieldAppearance;
+}
 
 @Component({
   selector: 'rvn-select',

@@ -6,6 +6,13 @@ import { IForm } from '../../types';
 import { ReactiveFormUtilityService } from '../../services/reactive-form-utility/reactive-form-utility.service';
 import { FormService } from '../../services/form/form.service';
 
+export interface FormDefinitionInput{
+  form: IForm;
+  markFGAsDirtySubject$: Subject<any>;
+  mode: CreateOrEdit;
+  formsList: IForm[];
+}
+
 @Component({
   selector: 'form-definition',
   templateUrl: './form-definition.component.html',
@@ -15,13 +22,9 @@ export class FormDefinitionComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private formUitilityService: ReactiveFormUtilityService, private formService: FormService) { }
 
-  @ViewChild("accordion", { read: ElementRef }) accordion;
-
-  @Input() form: IForm;
-  @Input() markFGAsDirtySubject$: Subject<any>;
-  @Input() mode: CreateOrEdit;
-  @Input() formsList: IForm[];
+  @Input() config: FormDefinitionInput; 
   @Output() formDefinitionUpdate: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @ViewChild("accordion", { read: ElementRef }) accordion;
 
   initDone: boolean = false;
   formGrp: FormGroup;
@@ -51,7 +54,7 @@ export class FormDefinitionComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (isNullOrUndefined(this.form))
+    if (isNullOrUndefined(this.config.form))
       this.initNewFormGroup();
     else
       this.initFormGroupFromDefinition();
@@ -75,7 +78,7 @@ export class FormDefinitionComponent implements OnInit {
 
 
   initFormGroupFromDefinition() {
-    this.formGrp = this.formService.getDefinitionFG(this.form);
+    this.formGrp = this.formService.getDefinitionFG(this.config.form);
 
     this.formGrp.valueChanges.subscribe(val => {
       this.formDefinitionUpdate.emit(this.formGrp);
@@ -83,14 +86,14 @@ export class FormDefinitionComponent implements OnInit {
   }
 
   handleParentSelectOptions() {
-    this.parentFormCompParam.selectOptions = this.formsList.map(f => { return { key: f.id, value: f.name } });
-    if (this.mode === "edit") this.parentFormCompParam.placeholder = "";
+    this.parentFormCompParam.selectOptions = this.config.formsList.map(f => { return { key: f.id, value: f.name } });
+    if (this.config.mode === "edit") this.parentFormCompParam.placeholder = "";
   }
 
 
   handleMarkingAsDirty() {
-    if (this.markFGAsDirtySubject$)
-      this.markFGAsDirtySubject$.subscribe(_ => {
+    if (this.config.markFGAsDirtySubject$)
+      this.config.markFGAsDirtySubject$.subscribe(_ => {
 
         // Mark all as dirty
         this.formUitilityService.markNestedFormGroupDirty(this.formGrp);

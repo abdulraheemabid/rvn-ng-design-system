@@ -1,6 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { isNullOrUndefined } from '@abdulraheemabid/rvn-pkg-ng-core';
-import { RecordTableInput } from './record-table.input';
+import { RvnTableInput } from '@abdulraheemabid/rvn-pkg-ng-core';
+import { IForm } from "../../types";
+
+export interface RecordTableInput {
+  tableConfig: RvnTableInput;
+  formDefinition: IForm;
+  actionsTemplate?: TemplateRef<any>;
+}
 
 @Component({
   selector: 'record-table',

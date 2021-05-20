@@ -2,7 +2,15 @@ import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CustomFormControlValueAccessor } from '../../utils/custom-form-control-value-accessor';
 import { isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnCheckboxInput } from './rvn-checkbox.input';
+import { KeyValue } from "@angular/common";
+
+export interface RvnCheckboxInput {
+  label: string;
+  checkboxOptions: KeyValue<any, any>[];
+  styleVersion?: "v1" | "v2" | 'v3';
+  mode?: 'standard' | 'boolean-display';
+  requiredErrorMessage?: string;
+}
 
 @Component({
   selector: 'rvn-checkbox',

@@ -36,33 +36,6 @@ export * from './lib/components/rvn-table/rvn-table.component';
 export * from './lib/components/rvn-toggle/rvn-toggle.component';
 export * from './lib/components/rvn-toolbar/rvn-toolbar.component';
 
-
-//Component Inputs
-
-export * from './lib/components/rvn-accordion/rvn-accordion.input';
-export * from './lib/components/rvn-accordion-panel/rvn-accordion-panel.input';
-export * from './lib/components/rvn-button/rvn-button.input';
-export * from './lib/components/rvn-card/rvn-card.input';
-export * from './lib/components/rvn-checkbox/rvn-checkbox.input';
-export * from './lib/components/rvn-chips/rvn-chips.input';
-export * from './lib/components/rvn-chips-autocomplete/rvn-chips-autocomplete.input';
-export * from './lib/components/rvn-chips-input/rvn-chips-input.input';
-export * from './lib/components/rvn-confirm-dialog/rvn-confirm-dialog.input';
-export * from './lib/components/rvn-datepicker/rvn-datepicker.input';
-export * from './lib/components/rvn-divider/rvn-divider.input';
-export * from './lib/components/rvn-icon/rvn-icon.input';
-export * from './lib/components/rvn-input/rvn-input.input';
-export * from './lib/components/rvn-list/rvn-list.input';
-export * from './lib/components/rvn-nav-list/rvn-nav-list.input';
-export * from './lib/components/rvn-org-chart/rvn-org-chart.input';
-export * from './lib/components/rvn-radio/rvn-radio.input';
-export * from './lib/components/rvn-select/rvn-select.input';
-export * from './lib/components/rvn-sidenav/rvn-sidenav.input';
-export * from './lib/components/rvn-spinner/rvn-spinner.input';
-export * from './lib/components/rvn-table/rvn-table.input';
-export * from './lib/components/rvn-toggle/rvn-toggle.input';
-export * from './lib/components/rvn-toolbar/rvn-toolbar.input';
-
 // Services
 
 export * from './lib/services/dynamic-component/dynamic-component.service';

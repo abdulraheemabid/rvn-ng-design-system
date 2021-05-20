@@ -1,8 +1,16 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { isNullOrUndefined, RvnButtonInput, RvnDialogService, RvnTableInput } from '@abdulraheemabid/rvn-pkg-ng-core';
-import { IRecord } from '../../types';
-import { RecordParentInputRendererInput } from './record-parent-input-renderer.input';
 import { FormService } from '../../services/form/form.service';
+import { FormControl } from "@angular/forms";
+import { IForm, IRecord } from "../../types";
+
+export interface RecordParentInputRendererInput {
+  valueFC: FormControl;
+  parentForm: IForm;
+  parentRecords: IRecord[];
+  showDummy: boolean;
+  disableButton?: boolean;
+}
 
 @Component({
   selector: 'record-parent-input-renderer',

@@ -1,6 +1,12 @@
 import { Component, Input, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormService } from '../../services/form/form.service';
-import { RecordCellViewInput } from './record-cell-view.input';
+import { IForm } from "../../types";
+
+export interface RecordCellViewInput {
+  fieldId: string;
+  value: any;
+  form: IForm;
+}
 
 @Component({
   selector: 'record-cell-view',

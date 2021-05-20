@@ -1,9 +1,14 @@
 import { Component, Input, OnInit, QueryList, ViewChildren, ViewContainerRef } from '@angular/core';
 import { isNullOrUndefined } from '@abdulraheemabid/rvn-pkg-ng-core';
-import { RecordParentValueRendererInput } from '../../type-value-renderers/record-parent-value-renderer/record-parent-value-renderer.input';
-import { RecordViewInput } from './record-view.input';
 import { IFormField } from '../../types';
 import { FormService } from '../../services/form/form.service';
+import { IForm, IRecord } from "../../types";
+import { RecordParentValueRendererInput } from '../../type-value-renderers/record-parent-value-renderer/record-parent-value-renderer.component';
+
+export interface RecordViewInput {
+  form: IForm;
+  record: IRecord
+}
 
 @Component({
   selector: 'record-view',

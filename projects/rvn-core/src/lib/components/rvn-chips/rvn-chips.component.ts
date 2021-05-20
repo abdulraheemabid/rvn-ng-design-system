@@ -1,6 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnChipsInput } from './rvn-chips.input';
+import { ColorType } from "../../utils/types";
+
+export interface RvnChipsInput {
+    list: {
+        key: string,
+        value: string,
+        color?: ColorType
+    }[];
+}
 
 @Component({
   selector: 'rvn-chips',

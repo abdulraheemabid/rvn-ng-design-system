@@ -4,7 +4,19 @@ import { of } from 'rxjs';
 import { RvnStyleService } from '../../services/style/style.service';
 import { CustomFormControlValueAccessor } from '../../utils/custom-form-control-value-accessor';
 import { isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnInputInput } from './rvn-input.input';
+import { FormFieldAppearance } from "../../services/style/style.service";
+
+export interface RvnInputInput {
+    label: string;
+    placeholder?: string;
+    type?: "number" | "text",
+    required?: boolean,
+    hint?: string,
+    requiredErrorMessage?: string,
+    styleVersion?: "v1" | "v2",
+    appearance?: FormFieldAppearance;
+    suffixIcon?: string;
+}
 
 @Component({
   selector: 'rvn-input',

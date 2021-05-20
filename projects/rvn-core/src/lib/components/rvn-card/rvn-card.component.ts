@@ -1,5 +1,10 @@
 import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
-import { RvnCardInput } from './rvn-card.input';
+
+export interface RvnCardInput {
+  headerIcon?: string;
+  title?: string;
+  subtitle?: string;
+}
 
 @Component({
   selector: 'rvn-card',

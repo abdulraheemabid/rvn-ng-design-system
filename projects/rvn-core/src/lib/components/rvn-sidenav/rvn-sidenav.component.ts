@@ -2,7 +2,10 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { RvnSidenavInput } from './rvn-sidenav.input';
+
+export interface RvnSidenavInput {
+  toggleSidenav$?: Observable<null>;
+}
 
 @Component({
   selector: 'rvn-sidenav',

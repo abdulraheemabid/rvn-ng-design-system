@@ -2,7 +2,15 @@ import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CustomFormControlValueAccessor } from '../../utils/custom-form-control-value-accessor';
 import { isKeyValue, isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnRadioInput } from './rvn-radio.input';
+import { KeyValue } from "@angular/common";
+
+export interface RvnRadioInput {
+    label: string;
+    required?: boolean;
+    requiredErrorMessage?: string;
+    radioOptions: KeyValue<any, any>[];
+    styleVersion?: "v1" | "v2" | "v3"
+}
 
 @Component({
   selector: 'rvn-radio',

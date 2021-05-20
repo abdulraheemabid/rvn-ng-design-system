@@ -1,5 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RvnNavListInput } from './rvn-nav-list.input';
+export interface RvnNavListInput {
+  list: RvnNavItem[];
+}
+
+export interface RvnNavItem {
+  displayName: string;
+  routeURL?: string;
+  showDividerBelow?: boolean;
+}
 
 @Component({
   selector: 'rvn-nav-list',

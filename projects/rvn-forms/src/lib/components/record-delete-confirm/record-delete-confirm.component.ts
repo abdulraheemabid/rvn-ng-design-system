@@ -1,7 +1,13 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { RecordParentInputRendererInput } from '../../type-input-renderers/record-parent-input-renderer/record-parent-input-renderer.input';
-import { RecordDeleteConfirmInput } from './record-delete-confirm.input';
+import { RecordParentInputRendererInput } from '../../type-input-renderers/record-parent-input-renderer/record-parent-input-renderer.component';
+import { IForm, IRecord } from "../../types";
+
+export interface RecordDeleteConfirmInput{
+  valueFC: FormControl;
+  parentForm: IForm;
+  parentRecords: IRecord[];
+}
 
 @Component({
   selector: 'record-delete-confirm',

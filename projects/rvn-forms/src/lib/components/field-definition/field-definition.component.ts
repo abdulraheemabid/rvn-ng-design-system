@@ -7,6 +7,10 @@ import { FormService } from '../../services/form/form.service';
 import { TypeMetaService } from '../../services/type-meta-service/type-meta.service';
 import { FieldType } from '../../types';
 
+export interface FieldDefinitionInput{
+  fieldFG: FormGroup;
+}
+
 @Component({
   selector: 'field-definition',
   templateUrl: './field-definition.component.html',
@@ -17,7 +21,7 @@ export class FieldDefinitionComponent implements OnInit {
   constructor(private formService: FormService, private typeMetaService: TypeMetaService) { }
 
   //fieldFG should contain type, name and required formControls already
-  @Input() fieldFG: any;
+  @Input() config: FieldDefinitionInput;
   @ViewChild("rendererAnchorPoint", { read: ViewContainerRef }) rendererAnchorPoint: ViewContainerRef;
   fieldNameCompConfig: RvnInputInput = { label: 'Name', placeholder: 'Minimum 3 characters', required: true };
   fieldTypeCompConfig: RvnSelectInput = { label: 'Type', placeholder: 'Select', required: true, selectOptions: null };
@@ -28,7 +32,7 @@ export class FieldDefinitionComponent implements OnInit {
   ngOnInit(): void {
     this.initUICompConfig();
 
-    let fieldTypeFC = this.fieldFG.get('type') as FormControl;
+    let fieldTypeFC = this.config.fieldFG.get('type') as FormControl;
     let fieldTypeValue = fieldTypeFC.value;
 
     this.onFieldTypeChange(fieldTypeFC);
@@ -43,7 +47,7 @@ export class FieldDefinitionComponent implements OnInit {
   }
 
   getCtrlByName(name: string): FormControl {
-    return this.fieldFG.get(name) as FormControl;
+    return this.config.fieldFG.get(name) as FormControl;
   }
 
   initUICompConfig() {
@@ -54,11 +58,11 @@ export class FieldDefinitionComponent implements OnInit {
     fieldTypeCtrl.valueChanges
       .pipe(
         map(v => {
-          if (this.fieldFG.get("attributes").get("displayAs") !== null)
-            (this.fieldFG.get("attributes") as FormGroup).removeControl("displayAs");
+          if (this.config.fieldFG.get("attributes").get("displayAs") !== null)
+            (this.config.fieldFG.get("attributes") as FormGroup).removeControl("displayAs");
 
-          if (this.fieldFG.get("arrayValues") !== null)
-            this.fieldFG.removeControl("arrayValues");
+          if (this.config.fieldFG.get("arrayValues") !== null)
+            this.config.fieldFG.removeControl("arrayValues");
 
           return v;
         })
@@ -69,7 +73,7 @@ export class FieldDefinitionComponent implements OnInit {
   }
 
   loadTypeRenderer(type: KeyValue<FieldType, string>) {
-    this.formService.injectTypeDefinitionRenderer(type, this.rendererAnchorPoint, this.fieldFG).subscribe();
+    this.formService.injectTypeDefinitionRenderer(type, this.rendererAnchorPoint, this.config.fieldFG).subscribe();
   }
 
 }

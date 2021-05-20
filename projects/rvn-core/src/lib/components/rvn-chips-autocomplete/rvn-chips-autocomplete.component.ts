@@ -4,10 +4,21 @@ import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { CustomFormControlValueAccessor } from '../../utils/custom-form-control-value-accessor';
-import { RvnChipsAutocompleteInput } from './rvn-chips-autocomplete.input';
-import { KeyValue } from '@angular/common';
 import { isNullOrUndefined } from '../../utils/funtions.util';
 import { RvnStyleService } from '../../services/style/style.service';
+import { KeyValue } from "@angular/common";
+import { FormFieldAppearance } from "../../services/style/style.service";
+
+export interface RvnChipsAutocompleteInput {
+    label: string;
+    placeholder?: string;
+    required?: boolean,
+    hint?: string,
+    requiredErrorMessage?: string,
+    styleVersion?: "v1" | "v2",
+    autoCompleteOption: KeyValue<any, any>[];
+    appearance?: FormFieldAppearance;
+}
 
 @Component({
   selector: 'rvn-chips-autocomplete',

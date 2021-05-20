@@ -2,10 +2,14 @@ import { Component, Input, OnInit } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { isNullOrUndefined, RvnDialogService } from '@abdulraheemabid/rvn-pkg-ng-core';
 import { RecordViewComponent } from '../../components/record-view/record-view.component';
-import { RecordParentValueRendererInput } from './record-parent-value-renderer.input';
 import { FormService } from '../../services/form/form.service';
 import { FormApiService } from '../../services/form-api/form-api.service';
+import { IForm, IRecord } from "../../types";
 
+export interface RecordParentValueRendererInput {
+  form: IForm,
+  record: IRecord,
+}
 @Component({
   selector: 'record-parent-value-renderer',
   templateUrl: './record-parent-value-renderer.component.html',

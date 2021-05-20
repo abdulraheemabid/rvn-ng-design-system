@@ -1,11 +1,23 @@
 import { Component, OnChanges, Input, ViewChildren, ViewContainerRef, QueryList, SimpleChanges, EventEmitter, Output } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { isNullOrUndefined, RvnSnackBarService } from '@abdulraheemabid/rvn-pkg-ng-core';
-import { FormRendererInput } from "./form-renderer.input";
 import { ReactiveFormUtilityService } from "../../services/reactive-form-utility/reactive-form-utility.service";
-import { RecordParentInputRendererInput } from "../../type-input-renderers/record-parent-input-renderer/record-parent-input-renderer.input";
 import { IFormField } from "../../types";
 import { FormService } from "../../services/form/form.service";
+import { Subject } from "rxjs";
+import { CreateOrEdit } from '@abdulraheemabid/rvn-pkg-ng-core';
+import { IForm, IRecord } from "../../types";
+import { RecordParentInputRendererInput } from "../../type-input-renderers/record-parent-input-renderer/record-parent-input-renderer.component";
+
+export interface FormRendererInput {
+  formDefinition: IForm;
+  mode?: CreateOrEdit | "preview";
+  record?: IRecord;
+  parentRecords?: IRecord[];
+  parentForm?: IForm;
+  markFGAsDirtySubject$?: Subject<any>;
+  preSelectedParentRecordId?: number;
+}
 
 @Component({
   selector: 'form-renderer',

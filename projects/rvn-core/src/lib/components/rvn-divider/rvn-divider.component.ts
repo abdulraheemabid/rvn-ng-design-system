@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnDividerInput } from './rvn-divider.input';
+export interface RvnDividerInput {
+  vertical?: boolean;
+  inset?: boolean;
+  width?: string;
+}
 
 @Component({
   selector: 'rvn-divider',

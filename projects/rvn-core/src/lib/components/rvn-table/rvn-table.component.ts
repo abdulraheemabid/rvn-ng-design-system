@@ -4,9 +4,28 @@ import { FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable } from 'rxjs';
 import { isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnTableInput } from './rvn-table.input';
+
+export interface RvnTableInput {
+  data: any[];
+  columnsToDisplay: {
+    keyName: string,
+    displayName?: string,
+    textAlign?: "center" | "left" | "right",
+    customTemplate?: TemplateRef<any>;
+    backgroundClass?: string;
+  }[];
+  enableFilter?: boolean;
+  useComponentFilter?: boolean;
+  filterInputFC?: FormControl;
+  stickColumnsAtStartIndexes?: number[];
+  stickColumnsAtEndIndexes?: number[];
+  noDataMessage?: string;
+  noDataOnFilterMessage?: string;
+  expandedRowTemplate?: TemplateRef<any>
+  enablePagination?: boolean;
+  pageOptions?: number[];
+}
 
 @Component({
   selector: 'rvn-table',

@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { RvnComponentDialogComponent } from '../../components/rvn-component-dialog/rvn-component-dialog.component';
-import { RvnComponentDialogInput } from '../../components/rvn-component-dialog/rvn-confirm-dialog.input';
-import { RvnConfirmDialogComponent } from '../../components/rvn-confirm-dialog/rvn-confirm-dialog.component';
-import { RvnConfirmDialogInput } from '../../components/rvn-confirm-dialog/rvn-confirm-dialog.input';
+import { RvnComponentDialogComponent, RvnComponentDialogInput } from '../../components/rvn-component-dialog/rvn-component-dialog.component';
+import { RvnConfirmDialogComponent, RvnConfirmDialogInput } from '../../components/rvn-confirm-dialog/rvn-confirm-dialog.component';
 
 @Injectable({
   providedIn: 'root'

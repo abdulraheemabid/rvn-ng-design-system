@@ -1,6 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnListInput } from './rvn-list.input';
+import { TemplateRef } from "@angular/core";
+
+export interface RvnListInput {
+    list: any[];
+    lineOneKey: string;
+    lineTwoKey?: string;
+    icon?: string;
+    actionTemplateRef?: TemplateRef<any>;
+    dense?: boolean;
+}
 
 @Component({
   selector: 'rvn-list',

@@ -1,6 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnAccordionPanelInput } from './rvn-accordion-panel.input';
+
+export interface RvnAccordionPanelInput {
+  hideToggle?: boolean;
+  hasActionContent?: boolean;
+  hasHeader?: boolean;
+  disabled?: boolean;
+  expanded?: boolean;
+}
 
 @Component({
   selector: 'rvn-accordion-panel',

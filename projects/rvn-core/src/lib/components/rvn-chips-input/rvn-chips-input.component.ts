@@ -1,12 +1,22 @@
 import { Component, forwardRef, Injector, Input, OnInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { RvnChipsInputInput } from './rvn-chips-input.input';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { CustomFormControlValueAccessor } from '../../utils/custom-form-control-value-accessor';
 import { isNullOrUndefined } from '../../utils/funtions.util';
 import { RvnStyleService } from '../../services/style/style.service';
 import { of } from 'rxjs';
+import { FormFieldAppearance } from "../../services/style/style.service";
+
+export interface RvnChipsInputInput {
+    label: string;
+    placeholder?: string;
+    required?: boolean,
+    hint?: string,
+    requiredErrorMessage?: string,
+    styleVersion?: "v1" | "v2",
+    appearance?: FormFieldAppearance;
+}
 
 @Component({
   selector: 'rvn-chips-input',

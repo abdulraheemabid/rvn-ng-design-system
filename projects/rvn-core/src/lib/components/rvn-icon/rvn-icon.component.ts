@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RvnIconInput } from './rvn-icon.input';
+export interface RvnIconInput {
+  name: string;
+}
 
 @Component({
   selector: 'rvn-icon',

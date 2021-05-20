@@ -2,7 +2,13 @@ import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CustomFormControlValueAccessor } from '../../utils/custom-form-control-value-accessor';
 import { isKeyValue, isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnToggleInput } from './rvn-toggle.input';
+
+export interface RvnToggleInput {
+  label: string;
+  required?: boolean;
+  requiredErrorMessage?: string;
+  styleVersion?: "v1" | "v2" 
+}
 
 @Component({
   selector: 'rvn-toggle',

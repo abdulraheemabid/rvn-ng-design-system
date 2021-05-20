@@ -1,6 +1,10 @@
 import { RvnChipsInputInput } from '@abdulraheemabid/rvn-pkg-ng-core';
 import { Component, Input, OnInit } from '@angular/core';
-import { ArrayValuesInput } from './array-values.input';
+import { FormControl } from "@angular/forms";
+
+export interface ArrayValuesInput {
+  uiFormControl: FormControl;
+}
 
 @Component({
   selector: 'array-values',

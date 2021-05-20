@@ -16,7 +16,7 @@
     "publish-forms:major": "cd projects/rvn-forms && npm version major && ng build rvn-forms --prod && cd ../../dist/rvn-forms && npm publish"
   },
   "dependencies": {
-    "@abdulraheemabid/rvn-pkg-ng-core": "~0.1.3",
+    "@abdulraheemabid/rvn-pkg-ng-core": "~0.2.0",
     "@angular/animations": "~11.2.12",
     "@angular/cdk": "^11.2.12",
     "@angular/common": "~11.2.10",

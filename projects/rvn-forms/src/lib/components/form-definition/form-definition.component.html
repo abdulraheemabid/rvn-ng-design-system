@@ -21,7 +21,7 @@
                 <div content class="controls">
                     <rvn-input class="form-name" [config]="formNameCompParam" [formControl]="formNameCtrl"></rvn-input>
                     <rvn-select class="form-name" [config]="parentFormCompParam" [formControl]="formParentFormCtrl"
-                        [disabled]="mode === 'edit'">
+                        [disabled]="config.mode === 'edit'">
                     </rvn-select>
                 </div>
 
@@ -86,7 +86,7 @@
 
 
                 <!-- mouse down event to prevent drag&drop panel when trying to select text in input -->
-                <field-definition (mousedown)="$event.stopPropagation()" content [fieldFG]="field"></field-definition>
+                <field-definition (mousedown)="$event.stopPropagation()" content [config]="{fieldFG: field}"></field-definition>
 
                 <rvn-button actionContent
                     *ngIf="field.get('markDeleted') == null || field.get('markDeleted')?.value == false"

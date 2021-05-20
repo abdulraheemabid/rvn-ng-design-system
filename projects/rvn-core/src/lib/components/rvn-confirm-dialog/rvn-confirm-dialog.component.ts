@@ -1,7 +1,16 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnConfirmDialogInput } from './rvn-confirm-dialog.input';
+import { RvnButtonInput } from '../rvn-button/rvn-button.component';
+
+export interface RvnConfirmDialogInput {
+  title?: string;
+  messages?: string[];
+  yesButtonMessage?: string;
+  yesButtonConfig?: RvnButtonInput;
+  noButtonMessage?: string;
+  noButtonConfig?: RvnButtonInput;
+}
 
 @Component({
   selector: 'rvn-confirm-dialog',

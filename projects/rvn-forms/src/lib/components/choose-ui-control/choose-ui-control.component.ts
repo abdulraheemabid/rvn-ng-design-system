@@ -2,8 +2,14 @@ import { KeyValue } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { isNullOrUndefined, RvnSelectInput } from '@abdulraheemabid/rvn-pkg-ng-core';
 import { UIControlNameEnum, UIControlEnum } from '../../types';
-import { ChooseUiControlInput } from './choose-ui-control.input';
 import { TypeMetaService } from '../../services/type-meta-service/type-meta.service';
+import { FormControl } from "@angular/forms";
+import { FieldType } from "../../types";
+
+export interface ChooseUiControlInput {
+  selectedFieldType: FieldType;
+  uiFormControl: FormControl;
+}
 
 @Component({
   selector: 'choose-ui-control',

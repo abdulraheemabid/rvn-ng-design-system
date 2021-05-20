@@ -1,7 +1,23 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { isNullOrUndefined } from '../../utils/funtions.util';
-import { OrgChartNode, RvnOrgChartInput } from './rvn-org-chart.input';
 
+export interface RvnOrgChartInput {
+  data: OrgChartNode;
+  keyForLabel: string;
+  expandAll?: boolean;
+  rootStyleClass?: string;
+  leafStyleClass?: string;
+  lookUpData?: any[];
+  useLookUpWithId?: boolean;
+}
+
+export interface OrgChartNode {
+  label?: string;
+  id?: number;
+  styleClass?: string
+  expanded?: boolean,
+  children?: OrgChartNode[];
+}
 
 @Component({
   selector: 'rvn-org-chart',

@@ -4,7 +4,17 @@ import { of } from 'rxjs';
 import { RvnStyleService } from '../../services/style/style.service';
 import { CustomFormControlValueAccessor } from '../../utils/custom-form-control-value-accessor';
 import { isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnDatepickerInput } from './rvn-datepicker.input';
+import { FormFieldAppearance } from "../../services/style/style.service";
+
+export interface RvnDatepickerInput {
+    label: string;
+    placeholder?: string;
+    required?: boolean,
+    hint?: string,
+    requiredErrorMessage?: string,
+    styleVersion?: "v1" | "v2",
+    appearance?: FormFieldAppearance;
+}
 
 @Component({
   selector: 'rvn-datepicker',

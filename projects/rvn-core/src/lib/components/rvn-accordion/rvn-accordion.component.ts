@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnAccordionInput } from './rvn-accordion.input';
+
+export interface RvnAccordionInput {
+  multi?: boolean;
+}
 
 @Component({
   selector: 'rvn-accordion',

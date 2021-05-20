@@ -14,16 +14,6 @@ export * from "./lib/components/record-delete-confirm/record-delete-confirm.comp
 export * from "./lib/components/record-table/record-table.component";
 export * from "./lib/components/record-view/record-view.component";
 
-// components inputs
-
-export * from "./lib/components/array-values/array-values.input";
-export * from "./lib/components/choose-ui-control/choose-ui-control.input";
-export * from "./lib/components/form-renderer/form-renderer.input";
-export * from "./lib/components/record-cell-view/record-cell-view.input";
-export * from "./lib/components/record-delete-confirm/record-delete-confirm.input";
-export * from "./lib/components/record-table/record-table.input";
-export * from "./lib/components/record-view/record-view.input";
-
 // definition renderers
 
 export * from "./lib/type-definition-renderers/base-definition-renderer/base-definition-renderer.component";

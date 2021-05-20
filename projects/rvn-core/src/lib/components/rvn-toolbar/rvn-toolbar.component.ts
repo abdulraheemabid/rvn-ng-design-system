@@ -1,6 +1,11 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnToolbarInput } from './rvn-toolbar.input';
+import { ColorType } from "../../utils/types";
+
+export interface RvnToolbarInput{
+  styleClass?: string;
+  color?: ColorType | "";
+}
 
 @Component({
   selector: 'rvn-toolbar',

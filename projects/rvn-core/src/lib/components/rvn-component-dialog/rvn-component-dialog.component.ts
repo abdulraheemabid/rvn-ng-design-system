@@ -2,7 +2,20 @@ import { Component, ComponentRef, EventEmitter, Inject, OnInit, Output, ViewChil
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DynamicComponentService } from '../../services/dynamic-component/dynamic-component.service';
 import { isNullOrUndefined } from '../../utils/funtions.util';
-import { RvnComponentDialogInput } from './rvn-confirm-dialog.input';
+import { KeyValue } from "@angular/common";
+import { RvnButtonInput } from '../rvn-button/rvn-button.component';
+
+export interface RvnComponentDialogInput {
+  title?: string;
+  component: any;
+  componentInputs?: KeyValue<string, any>[];
+  showActionBtns?: boolean;
+  showOnlyPrimaryButton?: boolean;
+  primaryButtonMessage?: string;
+  primaryButtonConfig?: RvnButtonInput;
+  secondaryButtonMessage?: string;
+  secondaryButtonConfig?: RvnButtonInput;
+}
 
 @Component({
   selector: 'rvn-component-dialog',
