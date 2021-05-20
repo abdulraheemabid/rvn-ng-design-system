@@ -1,0 +1,14 @@
+@import "../../../../../../node_modules/@abdulraheemabid/rvn-pkg-ng-core/styles/variables/spacing";
+
+.container {
+    .selector {
+        display: flex;
+        align-items: center;
+        .new {
+            margin-right: $space-xxs;
+        }
+        record-parent-input-renderer {
+            flex: 1;
+        }
+    }
+}

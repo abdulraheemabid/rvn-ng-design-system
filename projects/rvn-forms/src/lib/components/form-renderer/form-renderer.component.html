@@ -1,0 +1,23 @@
+<div class="container" [ngClass]="config.mode">
+    <h1 class="heading" *ngIf="config.mode === 'preview'">
+        <ng-container *ngIf="config.formDefinition.name !== null || config.formDefinition.name !== ''">
+            {{config.formDefinition.name}}
+        </ng-container>
+        <span *ngIf="config.formDefinition.name == null || config.formDefinition.name == ''" class="color-warn">
+            Form name not set
+        </span>
+    </h1>
+
+    <rvn-button *ngIf="config.mode === 'preview'" class="submit" (onClick)="submit()"
+        [config]="{type: 'primary', color: 'accent'}">Submit
+    </rvn-button>
+
+    <div class="form">
+        <record-parent-input-renderer class="control" *ngIf="isChildForm" [config]="parentRendererConfig">
+        </record-parent-input-renderer>
+
+        <div class="control" *ngFor="let field of config.formDefinition.fields">
+            <ng-template #fieldAnchorPoint></ng-template>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+@import "../../../../../../node_modules/@abdulraheemabid/rvn-pkg-ng-core/styles/variables/spacing";
+
+.container {
+    .heading {
+        border-bottom: 1px solid;
+
+        &.heading-entry {
+            margin-top: $space-l;
+        }
+    }
+
+    .records,
+    .fields {
+        display: flex;
+        flex-wrap: wrap;
+
+        .record,
+        .field {
+            display: flex;
+            align-items: center;
+            margin-right: $space-xxl;
+        }
+
+        .title {
+            padding-right: $space-m;
+        }
+    }
+}

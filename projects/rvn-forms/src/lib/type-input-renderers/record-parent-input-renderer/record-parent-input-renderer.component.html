@@ -1,0 +1,19 @@
+<div class="container">
+
+    <div class="view" *ngIf="mode === 'view'">
+        <span>Parent {{parentFieldName}}: </span>
+        <div class="form-field">
+            <span class="value" *ngIf="config.valueFC.value"> Id: {{config.valueFC.value}}</span>
+            <rvn-button class="rvn-icon-button-small" [config]="{type: 'icon', icon: 'launch', color: 'accent'}"
+                (onClick)="openSelectParentDialog()"></rvn-button>
+            <span class="err-msg color-warn" *ngIf="config.valueFC.hasError('required') && config.valueFC.dirty">Parent
+                {{parentFieldName}} is required</span>
+        </div>
+    </div>
+
+
+    <record-table *ngIf="mode !== 'view' && initDone" [config]="{formDefinition: config.parentForm, tableConfig: tableConfig}"
+        (rowClicked)="onRowSelect($event)">
+    </record-table>
+
+</div>

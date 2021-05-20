@@ -1,0 +1,104 @@
+<div class="container" *ngIf="initDone">
+
+    <div class="attributes">
+        <div class="heading">
+            <h1>Attributes</h1>
+            <rvn-divider></rvn-divider>
+        </div>
+
+        <rvn-accordion class="accordion">
+            <rvn-accordion-panel>
+                <span title class="title">
+                    <span>
+                        Form Name:
+                        <span class="text-bold">
+                            <span *ngIf="formNameCtrl?.value">{{formNameCtrl.value}}</span>
+                            <span *ngIf="!formNameCtrl?.value" class="color-warn">Not Specified</span>
+                        </span>
+                    </span>
+                </span>
+
+                <div content class="controls">
+                    <rvn-input class="form-name" [config]="formNameCompParam" [formControl]="formNameCtrl"></rvn-input>
+                    <rvn-select class="form-name" [config]="parentFormCompParam" [formControl]="formParentFormCtrl"
+                        [disabled]="mode === 'edit'">
+                    </rvn-select>
+                </div>
+
+            </rvn-accordion-panel>
+        </rvn-accordion>
+    </div>
+
+    <div class="fields">
+
+        <div class="heading background-bg">
+            <div class="flex">
+                <h1>
+                    Fields
+                    <span class="total text-caption">(total: {{fieldGroups.controls.length}})</span>
+                </h1>
+                <div class="btns">
+                    <rvn-button (click)="expandAllFields()" class="add-field-btn" [config]="expandCompParam">Expand
+                    </rvn-button>
+                    <rvn-button (click)="collapseAllFields()" class="add-field-btn" [config]="collapseCompParam">
+                        Collapse
+                    </rvn-button>
+                    <rvn-button (click)="addField()" class="add-field-btn" [config]="fieldAddCompParam">New Field
+                    </rvn-button>
+                </div>
+            </div>
+            <rvn-divider></rvn-divider>
+        </div>
+
+
+
+        <rvn-accordion #accordion class="accordion" cdkDropList (cdkDropListDropped)="changePositionOfField($event)">
+
+            <rvn-accordion-panel cdkDrag class="field"
+                [config]="{hasActionContent: true, expanded: field.get('attributes')?.get('_expanded').value}"
+                *ngFor="let field of fieldGroups.controls; let i = index; let last = last; let first = first">
+
+                <span title class="title"
+                    [ngClass]="{'color-warn': validated && field.status === 'INVALID' && field.dirty}">
+                    <span class="color-warn text-bold" *ngIf="field.get('markDeleted')?.value == true">
+                        Marked to be deleted
+                    </span>
+
+                    <span>
+                        Field Position:
+                        <span class="text-bold">{{i+1}}</span>
+                    </span>
+
+                    <span *ngIf="field.get('name')?.value">
+                        Name:
+                        <span class="text-bold">{{field.get('name')?.value}}</span>
+                    </span>
+
+                    <span *ngIf="field.get('type')?.value">
+                        Type:
+                        <span class="text-bold">{{field.get('type')?.value?.value}}</span>
+                    </span>
+
+                    <span *ngIf="validated && field.status === 'INVALID' && field.dirty"
+                        class="text-bold">INVALID</span>
+
+                </span>
+
+
+                <!-- mouse down event to prevent drag&drop panel when trying to select text in input -->
+                <field-definition (mousedown)="$event.stopPropagation()" content [fieldFG]="field"></field-definition>
+
+                <rvn-button actionContent
+                    *ngIf="field.get('markDeleted') == null || field.get('markDeleted')?.value == false"
+                    (click)="deleteField(i, field)" [config]="deleteFieldCompParam" [disabled]="first && last">
+                    Delete</rvn-button>
+
+                <rvn-button actionContent *ngIf="field.get('markDeleted')?.value == true" (click)="undoDelete(field)"
+                    [config]="undoDeleteFieldCompParam">
+                    Undo Delete</rvn-button>
+
+            </rvn-accordion-panel>
+
+        </rvn-accordion>
+
+    </div>

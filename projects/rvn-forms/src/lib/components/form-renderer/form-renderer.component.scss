@@ -1,0 +1,38 @@
+@import "../../../../../../node_modules/@abdulraheemabid/rvn-pkg-ng-core/styles/variables/spacing";
+@import "../../../../../../node_modules/@abdulraheemabid/rvn-pkg-ng-core/styles/variables/width";
+
+.container {
+    display: grid;
+    gap: $space-s;
+    grid-template-areas:
+        "heading submit"
+        "form form";
+
+    .heading {
+        grid-area: heading;
+    }
+
+    .submit {
+        grid-area: submit;
+        margin-left: auto;
+    }
+
+    .form {
+        grid-area: form;
+        grid-row: auto;
+        align-items: center;
+        display: grid;
+        column-gap: $space-xl;
+        grid-template-columns: repeat(2, minmax($ui-control-min-width, 1fr));
+    }
+
+    .control {
+        max-width: 100%;
+    }
+
+    &.preview {
+        .form {
+            grid-template-columns: repeat(auto-fill, minmax($ui-control-min-width, 1fr));
+        }
+    }
+}

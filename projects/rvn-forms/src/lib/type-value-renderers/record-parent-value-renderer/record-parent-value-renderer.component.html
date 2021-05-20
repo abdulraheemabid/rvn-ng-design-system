@@ -1,0 +1,7 @@
+<p class="container">
+    <span class="title text-bold">Parent {{parentFieldName}} Id:</span>
+    <span class="value">{{config?.record?.attributes?.parent?.recordId}}</span>
+    <rvn-button class="rvn-icon-button-small" [config]="{type: 'icon', icon: 'launch', color: 'accent'}"
+        (onClick)="openSelectParentDialog()">
+    </rvn-button>
+</p>

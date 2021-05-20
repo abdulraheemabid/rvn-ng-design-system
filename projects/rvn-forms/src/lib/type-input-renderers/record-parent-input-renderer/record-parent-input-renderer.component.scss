@@ -1,0 +1,21 @@
+@import "../../../../../../node_modules/@abdulraheemabid/rvn-pkg-ng-core/styles/variables/width";
+@import "../../../../../../node_modules/@abdulraheemabid/rvn-pkg-ng-core/styles/variables/spacing";
+
+.container {
+    display: flex;
+    .view {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+
+        .form-field {
+            display: flex;
+            align-items: center;
+            .value{
+                margin-top: $space-xxs;
+                margin-right: $space-m;
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<span class="container">
+    <ng-container [ngSwitch]="UIControl">
+
+        <ng-container *ngSwitchCase="UIControlEnum.CHECKBOX">
+            <rvn-checkbox [config]="config" [formControl]="valueFC"></rvn-checkbox>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="UIControlEnum.CHIPSINPUT">
+            <rvn-chips-autocomplete [config]="config" [formControl]="valueFC"></rvn-chips-autocomplete>
+        </ng-container>
+        
+    </ng-container>
+</span>

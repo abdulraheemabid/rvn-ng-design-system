@@ -1,0 +1,91 @@
+@import "../../../../../../node_modules/@abdulraheemabid/rvn-pkg-ng-core/styles/variables/spacing";
+@import "../../../../../../node_modules/@abdulraheemabid/rvn-pkg-ng-core/styles/variables/theme";
+
+.container {
+    h2,
+    h3 {
+        margin: 0;
+    }
+
+    .flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $space-m;
+    }
+
+    display: grid;
+    grid-template:
+        "att"
+        "fields";
+
+    .attributes {
+        grid-area: att;
+        display: grid;
+
+        .heading {
+            h2 {
+                margin-bottom: $space-m;
+            }
+        }
+    }
+
+    .fields {
+        grid-area: fields;
+        display: grid;
+
+        .total {
+            vertical-align: middle;
+        }
+
+        .heading {
+            position: sticky;
+            //TODO: fix hardcoding. (top 0 + toolBar height)
+            top: 64px;
+            z-index: 2;
+            padding: $space-xxl 0;
+        }
+
+        .divider {
+            display: block;
+            margin-top: $space-l;
+        }
+
+        .btns {
+            * {
+                margin-left: $space-s;
+            }
+        }
+
+        .title {
+            display: grid;
+            gap: $space-xl;
+            grid: 1fr / repeat(4, max-content);
+        }
+
+        .accordion {
+            overflow-y: auto;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .field:last-child {
+            border: none;
+        }
+    }
+
+    .text-bold {
+        margin-left: $space-xs;
+    }
+
+    .cdk-drag-animating {
+        transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    .accordion.cdk-drop-list-dragging .field:not(.cdk-drag-placeholder) {
+        transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+    }
+}

@@ -162,6 +162,46 @@
           }
         }
       }
+    },
+    "rvn-forms": {
+      "projectType": "library",
+      "root": "projects/rvn-forms",
+      "sourceRoot": "projects/rvn-forms/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/rvn-forms/tsconfig.lib.json",
+            "project": "projects/rvn-forms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rvn-forms/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rvn-forms/src/test.ts",
+            "tsConfig": "projects/rvn-forms/tsconfig.spec.json",
+            "karmaConfig": "projects/rvn-forms/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/rvn-forms/tsconfig.lib.json",
+              "projects/rvn-forms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "rvn-ng-design-system"

@@ -1,0 +1,6 @@
+<span class="container">
+    <rvn-input class="name" [config]="fieldNameCompConfig" [formControl]="getCtrlByName('name')"></rvn-input>
+    <rvn-toggle class="required" [config]="fieldRequiredCompConfig" [formControl]="getCtrlByName('required')"></rvn-toggle>
+    <rvn-select class="type" [config]="fieldTypeCompConfig" [formControl]="getCtrlByName('type')"></rvn-select>
+    <ng-template #rendererAnchorPoint></ng-template>
+</span>

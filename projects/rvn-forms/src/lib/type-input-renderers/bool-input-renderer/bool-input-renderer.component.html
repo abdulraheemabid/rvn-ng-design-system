@@ -1,0 +1,17 @@
+<span class="container">
+   <ng-container [ngSwitch]="UIControl">
+
+      <ng-container *ngSwitchCase="UIControlEnum.TOGGLE">
+         <rvn-toggle [config]="config" [formControl]="valueFC"></rvn-toggle>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="UIControlEnum.RADIO">
+         <rvn-radio [config]="config" [formControl]="valueFC"></rvn-radio>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="UIControlEnum.SELECT">
+         <rvn-select [config]="config" [formControl]="valueFC"></rvn-select>
+      </ng-container>
+
+   </ng-container>
+</span>
