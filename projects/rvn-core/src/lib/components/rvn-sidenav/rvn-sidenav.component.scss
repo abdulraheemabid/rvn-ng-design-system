@@ -1,8 +1,10 @@
-.rvn-sidenav-container {
+@import "../../styles/variables/width";
+
+.rvn-sidenav {
     height: 100%;
 
     .sidenav {
-        width: 200px;
+        width: $sidenav-width;
     }
 
     .sidenav .mat-toolbar,
