@@ -39,11 +39,10 @@
         }
 
         .heading {
-            position: sticky;
-            //TODO: fix hardcoding. (top 0 + toolBar height)
-            top: 64px;
-            z-index: 2;
             padding: $space-xxl 0;
+            h1{
+                margin-bottom: 0;
+            }
         }
 
         .divider {

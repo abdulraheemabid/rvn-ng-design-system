@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "build-core": "cd projects/rvn-core && ng build rvn-core --prod && xcopy \"./src/lib/styles\" \"../../dist/rvn-core/styles\" /E /I /Y && cd.. && cd.." ,
     "publish-core:patch": "cd projects/rvn-core && npm version patch && ng build rvn-core --prod && xcopy \"./src/lib/styles\" \"../../dist/rvn-core/styles\" /E /I /Y && cd ../../dist/rvn-core && npm publish",
     "publish-core:minor": "cd projects/rvn-core && npm version minor && ng build rvn-core --prod && xcopy \"./src/lib/styles\" \"../../dist/rvn-core/styles\" /E /I /Y && cd ../../dist/rvn-core && npm publish",
     "publish-core:major": "cd projects/rvn-core && npm version major && ng build rvn-core --prod && xcopy \"./src/lib/styles\" \"../../dist/rvn-core/styles\" /E /I /Y && cd ../../dist/rvn-core && npm publish",
@@ -16,7 +17,7 @@
     "publish-forms:major": "cd projects/rvn-forms && npm version major && ng build rvn-forms --prod && cd ../../dist/rvn-forms && npm publish"
   },
   "dependencies": {
-    "@abdulraheemabid/rvn-pkg-ng-core": "~0.2.0",
+    "@abdulraheemabid/rvn-pkg-ng-core": "~0.2.2",
     "@angular/animations": "~11.2.12",
     "@angular/cdk": "^11.2.12",
     "@angular/common": "~11.2.10",

@@ -10,3 +10,7 @@ $border-width-xl: 5px;
 $root-node-min-width: calc(#{$btn-min-width} + #{$space-xxl});
 $sidenav-width: 200px;
 $app-max-width: 1600px;
+$app-toolbar-height: 64px;
+$app-content-padding: 5vh;
+$app-content-height: calc(100vh - #{$app-toolbar-height} - calc(#{$app-content-padding} * 2));
+$absolute-top-height: calc(#{$app-toolbar-height} + #{$app-content-padding});

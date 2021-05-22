@@ -109,11 +109,11 @@ body {
     }
 }
 
-.rvn-table {
-    .header-row {
-        //@extend .primary-bg;
-    }
-}
+// .rvn-table {
+//     .header-row {
+//         //@extend .primary-bg;
+//     }
+// }
 
 .rvn-menu-items {
     .rvn-ui-control {
@@ -167,7 +167,39 @@ body {
         width: $root-node-min-width;
     }
 
-    &.rvn-org-chart-leaf-node {
+    // &.rvn-org-chart-leaf-node {
+    // }
+}
+
+.rvn-app{
+    @extend .rvn-scrollbar;
+}
+
+.rvn-app-content-container {
+    overflow: auto;
+    padding: $app-content-padding;
+    height: $app-content-height;
+   
+}
+
+.rvn-app-content {
+    max-width: $app-max-width;
+    margin: auto;
+}
+
+.rvn-scrollbar {
+    ::-webkit-scrollbar-track {
+        @extend .white-bg;
+        border-radius: 30px;
+    }
+
+    ::-webkit-scrollbar {
+        width: $space-xs;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @extend .accent-bg;
+        border-radius: 30px;
     }
 }
 
