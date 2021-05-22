@@ -74,7 +74,7 @@ body {
 .rvn-scrollbar {
     ::-webkit-scrollbar-track {
         @extend .white-bg;
-        border-radius: 30px;
+        border-radius: $space-xxl;
     }
 
     ::-webkit-scrollbar {
@@ -83,7 +83,7 @@ body {
 
     ::-webkit-scrollbar-thumb {
         @extend .accent-bg;
-        border-radius: 30px;
+        border-radius: $space-xxl;
     }
 }
 
@@ -140,7 +140,7 @@ body {
     min-height: $ui-control-height;
     display: flex;
     align-items: center;
-    margin: $space-s 0px;
+    margin: $space-s 0;
 
     .error-msg {
         //copied from mat design
@@ -166,7 +166,7 @@ body {
         height: max-content;
     }
     .mat-icon {
-        font-size: 20px;
+        font-size: calc(#{$space-m} + #{$space-xs});
     }
 }
 
@@ -189,7 +189,7 @@ body {
     .dense {
         .mat-icon {
             //TODO: remove hardcoding
-            font-size: 20px;
+            font-size: calc(#{$space-m} + #{$space-xs});
         }
     }
     .mat-list-item-content {
