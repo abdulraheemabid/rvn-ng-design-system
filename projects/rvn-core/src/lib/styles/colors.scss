@@ -1,0 +1,118 @@
+@import "./variables/theme";
+
+.color-primary {
+    color: $light-primary !important;
+}
+
+.color-accent {
+    color: $light-accent !important;
+}
+
+.color-warn {
+    color: $light-warn !important;
+}
+
+.color-white {
+    color: $light-white !important;
+}
+
+.color-grey {
+    color: $light-grey !important;
+}
+
+.color-foreground {
+    color: $light-foreground !important;
+}
+
+.primary-bg {
+    background-color: $light-primary !important;
+}
+
+.accent-bg {
+    background-color: $light-accent !important;
+}
+
+.warn-bg {
+    background-color: $light-warn !important;
+}
+
+.white-bg {
+    background-color: $light-white !important;
+}
+
+.grey-bg {
+    background-color: $light-grey !important;
+}
+
+.background-bg {
+    background-color: $light-background !important;
+}
+
+.foreground-bg {
+    background-color: $light-foreground !important;
+}
+
+.grey-border {
+    border-color: $light-grey !important;
+}
+
+
+// Dark theme specific
+
+.app-dark-theme {
+    .color-primary {
+        color: $dark-primary !important;
+    }
+
+    .color-accent {
+        color: $dark-accent !important;
+    }
+
+    .color-warn {
+        color: $dark-warn !important;
+    }
+
+    .color-white {
+        color: $dark-white !important;
+    }
+
+    .color-grey {
+        color: $dark-grey !important;
+    }
+
+    .color-foreground {
+        color: $dark-foreground !important;
+    }
+
+    .primary-bg {
+        background-color: $dark-primary !important;
+    }
+
+    .accent-bg {
+        background-color: $dark-accent !important;
+    }
+
+    .warn-bg {
+        background-color: $dark-warn !important;
+    }
+
+    .white-bg {
+        background-color: $dark-white !important;
+    }
+
+    .grey-bg {
+        background-color: $dark-grey !important;
+    }
+
+    .background-bg {
+        background-color: $dark-background !important;
+    }
+
+    .grey-border {
+        border-color: $dark-grey !important;
+    }
+
+    .foreground-bg {
+        background-color: $dark-foreground !important;
+    }
+}

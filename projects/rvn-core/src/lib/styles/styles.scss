@@ -1,6 +1,6 @@
 @import "./variables/spacing";
 @import "./variables/width";
-@import "./variables/theme";
+@import "./colors.scss";
 
 //TODO: Optimize: primeng will make it very bulky, try to remove or replace it
 @import "../../../primeng/resources/themes/saga-blue/theme.css";
@@ -54,15 +54,85 @@ body {
     @extend .mat-body-2;
 }
 
+// app styles
+
+.rvn-app {
+    @extend .rvn-scrollbar;
+}
+
+.rvn-app-content-container {
+    overflow: auto;
+    padding: $app-content-padding;
+    height: $app-content-height;
+}
+
+.rvn-app-content {
+    max-width: $app-max-width;
+    margin: auto;
+}
+
+.rvn-scrollbar {
+    ::-webkit-scrollbar-track {
+        @extend .white-bg;
+        border-radius: 30px;
+    }
+
+    ::-webkit-scrollbar {
+        width: $space-xs;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @extend .accent-bg;
+        border-radius: 30px;
+    }
+}
+
+.rvn-toolbar {
+    &.main-toolbar {
+        position: sticky;
+        top: 0;
+        // 3 worked, but mat table header is 100
+        z-index: 101;
+
+        ::ng-deep {
+            mat-toolbar {
+                height: $app-toolbar-height;
+            }
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
 .snack-bar {
     &.top {
-        //TODO: remove hardcoding. height of topbar + 10px
-        margin-top: 75px;
+        margin-top: calc(#{$app-toolbar-height} + #{$space-s});
     }
 
     &.center {
         display: flex !important;
         justify-content: center;
+    }
+}
+
+.rvn-card {
+    .card-header {
+        @extend .primary-bg;
+        // on dark theme its white by default, needed for light theme
+        @extend .color-white;
+    }
+}
+
+.rvn-accordion {
+    .accordion-header {
+        @extend .primary-bg;
+        .accordion-header-title {
+            // on dark theme its white by default, needed for light theme
+            @extend .color-white;
+        }
     }
 }
 
@@ -91,62 +161,6 @@ body {
     }
 }
 
-.rvn-card {
-    .card-header {
-        @extend .primary-bg;
-        // on dark theme its white by default, needed for light theme
-        @extend .color-white;
-    }
-}
-
-.rvn-accordion {
-    .accordion-header {
-        @extend .primary-bg;
-        .accordion-header-title {
-            // on dark theme its white by default, needed for light theme
-            @extend .color-white;
-        }
-    }
-}
-
-// .rvn-table {
-//     .header-row {
-//         //@extend .primary-bg;
-//     }
-// }
-
-.rvn-menu-items {
-    .rvn-ui-control {
-        min-height: auto;
-    }
-}
-
-.rvn-list {
-    .dense {
-        .mat-icon {
-            font-size: 20px;
-        }
-    }
-    .mat-list-item-content {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-}
-
-.rvn-toolbar {
-    &.main-toolbar {
-        position: sticky;
-        top: 0;
-        // 3 worked, but mat table header is 100
-        z-index: 101;
-
-        .content {
-            display: flex;
-            align-items: center;
-        }
-    }
-}
-
 .rvn-icon-button-small {
     button {
         height: max-content;
@@ -171,152 +185,15 @@ body {
     // }
 }
 
-.rvn-app{
-    @extend .rvn-scrollbar;
-}
-
-.rvn-app-content-container {
-    overflow: auto;
-    padding: $app-content-padding;
-    height: $app-content-height;
-   
-}
-
-.rvn-app-content {
-    max-width: $app-max-width;
-    margin: auto;
-}
-
-.rvn-scrollbar {
-    ::-webkit-scrollbar-track {
-        @extend .white-bg;
-        border-radius: 30px;
+.rvn-list {
+    .dense {
+        .mat-icon {
+            //TODO: remove hardcoding
+            font-size: 20px;
+        }
     }
-
-    ::-webkit-scrollbar {
-        width: $space-xs;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        @extend .accent-bg;
-        border-radius: 30px;
-    }
-}
-
-// Colors
-
-.color-primary {
-    color: $light-primary !important;
-}
-
-.color-accent {
-    color: $light-accent !important;
-}
-
-.color-warn {
-    color: $light-warn !important;
-}
-
-.color-white {
-    color: $light-white !important;
-}
-
-.color-grey {
-    color: $light-grey !important;
-}
-
-.color-foreground {
-    color: $light-foreground !important;
-}
-
-.primary-bg {
-    background-color: $light-primary !important;
-}
-
-.accent-bg {
-    background-color: $light-accent !important;
-}
-
-.warn-bg {
-    background-color: $light-warn !important;
-}
-
-.white-bg {
-    background-color: $light-white !important;
-}
-
-.grey-bg {
-    background-color: $light-grey !important;
-}
-
-.background-bg {
-    background-color: $light-background !important;
-}
-
-.foreground-bg {
-    background-color: $light-foreground !important;
-}
-
-.grey-border {
-    border-color: $light-grey !important;
-}
-
-// Dark theme specific
-
-.app-dark-theme {
-    .color-primary {
-        color: $dark-primary !important;
-    }
-
-    .color-accent {
-        color: $dark-accent !important;
-    }
-
-    .color-warn {
-        color: $dark-warn !important;
-    }
-
-    .color-white {
-        color: $dark-white !important;
-    }
-
-    .color-grey {
-        color: $dark-grey !important;
-    }
-
-    .color-foreground {
-        color: $dark-foreground !important;
-    }
-
-    .primary-bg {
-        background-color: $dark-primary !important;
-    }
-
-    .accent-bg {
-        background-color: $dark-accent !important;
-    }
-
-    .warn-bg {
-        background-color: $dark-warn !important;
-    }
-
-    .white-bg {
-        background-color: $dark-white !important;
-    }
-
-    .grey-bg {
-        background-color: $dark-grey !important;
-    }
-
-    .background-bg {
-        background-color: $dark-background !important;
-    }
-
-    .grey-border {
-        border-color: $dark-grey !important;
-    }
-
-    .foreground-bg {
-        background-color: $dark-foreground !important;
+    .mat-list-item-content {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
