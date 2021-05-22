@@ -5,6 +5,9 @@
 
     .header-action {
         margin-left: auto;
+        position: absolute;
+        right: $space-l;
+        top: $space-m;
     }
 
     .card {
