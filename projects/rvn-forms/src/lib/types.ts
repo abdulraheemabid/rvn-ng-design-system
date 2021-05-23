@@ -52,6 +52,10 @@ export interface IRecordParent{
     recordId: number
 }
 
+export type IFieldTypeMetaConfig = {
+    [key in FieldType]: IFieldTypeMeta;
+};
+
 export interface IFieldTypeMeta {
     typeDisplayName: string;
     definitionRenderer: any;

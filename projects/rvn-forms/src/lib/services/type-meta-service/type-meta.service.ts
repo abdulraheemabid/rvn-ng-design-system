@@ -1,16 +1,21 @@
+import { isNullOrUndefined } from '@abdulraheemabid/rvn-pkg-ng-core';
 import { KeyValue } from '@angular/common';
-import { Injectable } from '@angular/core';
-import { FieldType, IFieldTypeMeta } from '../../types';
-import { fieldTypeMetaDataMap } from './field-type-metadata';
+import { Inject, Injectable } from '@angular/core';
+import { FieldType, IFieldTypeMeta, IFieldTypeMetaConfig } from '../../types';
+import { fieldTypeMetaDataConfig } from './field-type-metadata';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TypeMetaService {
 
-  constructor() { }
+  fieldTypeMeta;
 
-  fieldTypeMeta = fieldTypeMetaDataMap;
+  constructor(@Inject("typeMetaConfig") private overridenConfig: IFieldTypeMetaConfig) {
+    let config = fieldTypeMetaDataConfig;
+    if (!isNullOrUndefined(overridenConfig)) config = { ...config, ...overridenConfig };
+    this.fieldTypeMeta = new Map(Object.entries(config));
+  }
 
   getFieldTypes(): KeyValue<FieldType, string>[] {
     let result = [];
