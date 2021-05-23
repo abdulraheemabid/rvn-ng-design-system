@@ -5,12 +5,11 @@ $btn-min-width: 120px;
 $ui-control-min-width: 300px;
 $ui-control-height: 78px;
 $border-width: 1px;
-$border-width-l: 2px;
-$border-width-xl: 5px;
-$root-node-min-width: calc(#{$btn-min-width} + #{$space-xxl});
 $sidenav-width: 200px;
 $app-max-width: 1600px;
 $app-toolbar-height: 64px;
-$app-content-padding: 5vh;
+$app-content-padding: 2vh;
+
+$root-node-min-width: calc(#{$btn-min-width} + #{$space-xxl});
 $app-content-height: calc(100vh - #{$app-toolbar-height});
 $absolute-top-height: calc(#{$app-toolbar-height} + #{$app-content-padding});

@@ -1,6 +1,6 @@
 <mat-sidenav-container class="rvn-sidenav">
-    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isSmallDesktop$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isSmallDesktop$ | async) ? 'over' : 'side'" [opened]="(isSmallDesktop$ | async) === false">
 
         <ng-content select="[sidenav]"></ng-content>
     </mat-sidenav>

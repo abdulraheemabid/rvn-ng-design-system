@@ -18,7 +18,7 @@ export class RvnSidenavComponent implements OnInit {
 
   @Input() config: RvnSidenavInput = {} as any;
   @ViewChild("drawer", { static: true }) drawer;
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  isSmallDesktop$: Observable<boolean> = this.breakpointObserver.observe("(max-width: 1367px)")
     .pipe(
       map(result => result.matches),
       shareReplay()
