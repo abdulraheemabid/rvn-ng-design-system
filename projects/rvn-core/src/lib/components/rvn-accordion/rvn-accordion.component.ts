@@ -5,6 +5,21 @@ export interface RvnAccordionInput {
   multi?: boolean;
 }
 
+/**
+ * Config defaults:
+ * 1. multi: true. 
+ * 
+ * Supported ng-content selectors
+ * 1. Any content placed inside the tags will be rendered. rvn-accordion-panel should be used inside.
+ * @example
+ * <rvn-accordion>
+ *                <rvn-accordion-panel [config]="{hasActionContent: true, expanded: true}">
+ *                  <span title>My Title</span>
+ *                  <div content>My Content</div>
+ *                  <rvn-button actionContent>Action Button</rvn-button>
+ *                </rvn-accordion-panel>
+ * </rvn-accordion>
+ */
 @Component({
   selector: 'rvn-accordion',
   templateUrl: './rvn-accordion.component.html',

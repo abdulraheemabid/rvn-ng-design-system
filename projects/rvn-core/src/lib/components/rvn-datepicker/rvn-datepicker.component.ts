@@ -15,7 +15,21 @@ export interface RvnDatepickerInput {
     styleVersion?: "v1" | "v2",
     appearance?: FormFieldAppearance;
 }
-
+/**
+ * FormControl required: true
+ * 
+ * Config defaults:
+ * 1. required: false
+ * 2. requiredErrorMessage: `${this.config.label} is required`
+ * 3. styleVersion: 'v1'
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * @example
+ * <rvn-datepicker [config]="dateInput" [formControl]="dateFC"></rvn-datepicker>
+ * 
+ */
 @Component({
   selector: 'rvn-datepicker',
   templateUrl: './rvn-datepicker.component.html',

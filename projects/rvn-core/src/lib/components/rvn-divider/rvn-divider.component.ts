@@ -6,6 +6,19 @@ export interface RvnDividerInput {
   width?: string;
 }
 
+/** 
+ * Config defaults:
+ * 1. inset: false
+ * 2. vertical: false
+ * 3. width: '100%'
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * @example
+ * <rvn-divider></rvn-divider>
+ * 
+ */
 @Component({
   selector: 'rvn-divider',
   templateUrl: './rvn-divider.component.html',

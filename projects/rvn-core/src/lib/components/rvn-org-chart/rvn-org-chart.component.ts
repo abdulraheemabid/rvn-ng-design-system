@@ -19,6 +19,17 @@ export interface OrgChartNode {
   children?: OrgChartNode[];
 }
 
+/**
+ * Config defaults:
+ * 1. keyForLabel: `Object.keys(this.config.data)[0]`
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * @example
+ * <rvn-org-chart [config]="orChartConfig"></rvn-org-chart>
+ * 
+ */
 @Component({
   selector: 'rvn-org-chart',
   templateUrl: './rvn-org-chart.component.html',

@@ -9,6 +9,17 @@ export interface RvnNavItem {
   showDividerBelow?: boolean;
 }
 
+/**
+ * Config defaults:
+ * 1. none
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * @example
+ * <rvn-nav-list [config]="{list: sideBarLinks}"></rvn-nav-list>
+ * 
+ */
 @Component({
   selector: 'rvn-nav-list',
   templateUrl: './rvn-nav-list.component.html',

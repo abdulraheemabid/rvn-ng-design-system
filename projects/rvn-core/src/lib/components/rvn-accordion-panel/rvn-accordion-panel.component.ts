@@ -9,6 +9,31 @@ export interface RvnAccordionPanelInput {
   expanded?: boolean;
 }
 
+/**
+ * Config defaults:
+ * 1. hideToggle: false
+ * 2. hasActionContent: false
+ * 3. hasHeader: true
+ * 4. disabled: false
+ * 5. expanded: true
+ * 
+ * Supported ng-content selectors
+ * 1. title
+ * 2. description
+ * 3. headerContent
+ * 4. content
+ * 5. actionContent
+ * 
+ *  @example
+ * <rvn-accordion>
+ *                <rvn-accordion-panel [config]="{hasActionContent: true, expanded: true}">
+ *                  <span title>My Title</span>
+ *                  <div content>My Content</div>
+ *                  <rvn-button actionContent>Action Button</rvn-button>
+ *                </rvn-accordion-panel>
+ * </rvn-accordion>
+ * 
+ */
 @Component({
   selector: 'rvn-accordion-panel',
   templateUrl: './rvn-accordion-panel.component.html',

@@ -12,6 +12,21 @@ export interface RvnCheckboxInput {
   requiredErrorMessage?: string;
 }
 
+/**
+ * FormControl required: true
+ * 
+ * Config defaults:
+ * 1. styleVersion: 'v1'
+ * 2. mode: 'standard', 'boolean-display' will show one disabled checbox for viewing only
+ * 3. requiredErrorMessage: `${this.config.label} is required`
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * @example
+ * <rvn-checkbox [config]="checkboxInput" [formControl]="checkboxFC"></rvn-checkbox>
+ * 
+ */
 @Component({
   selector: 'rvn-checkbox',
   templateUrl: './rvn-checkbox.component.html',

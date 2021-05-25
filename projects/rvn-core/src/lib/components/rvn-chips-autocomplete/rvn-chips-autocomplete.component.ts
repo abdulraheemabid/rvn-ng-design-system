@@ -20,6 +20,21 @@ export interface RvnChipsAutocompleteInput {
     appearance?: FormFieldAppearance;
 }
 
+/**
+ * FormControl required: true
+ * 
+ * Config defaults:
+ * 1. required: false
+ * 2. requiredErrorMessage: `${this.config.label} is required`
+ * 3. styleVersion: 'v1'
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * @example
+ * <rvn-chips-autocomplete [config]="chipInput" [formControl]="chipsFC"></rvn-chips-autocomplete>
+ * 
+ */
 @Component({
   selector: 'rvn-chips-autocomplete',
   templateUrl: './rvn-chips-autocomplete.component.html',

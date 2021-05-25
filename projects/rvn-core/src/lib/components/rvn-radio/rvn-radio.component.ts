@@ -12,6 +12,21 @@ export interface RvnRadioInput {
     styleVersion?: "v1" | "v2" | "v3"
 }
 
+/**
+ * FormControl required: true
+ * 
+ * Config defaults:
+ * 1. styleVersion: 'v1'
+ * 2. required: false
+ * 3. requiredErrorMessage: `${this.config.label} is required`
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * @example
+ * <rvn-radio [config]="radioInput" [formControl]="fc"></rvn-radio>
+ * 
+ */
 @Component({
   selector: 'rvn-radio',
   templateUrl: './rvn-radio.component.html',

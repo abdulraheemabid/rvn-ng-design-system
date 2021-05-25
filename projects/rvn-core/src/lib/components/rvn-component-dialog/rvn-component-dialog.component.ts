@@ -17,6 +17,34 @@ export interface RvnComponentDialogInput {
   secondaryButtonConfig?: RvnButtonInput;
 }
 
+/** 
+ * Config defaults:
+ * 1. title: ''
+ * 2. showActionBtns: false
+ * 3. showOnlyPrimaryButton: false
+ * 4. primaryButtonMessage: 'Yes'
+ * 5. secondaryButtonMessage: 'No'
+ * 6. primaryButtonConfig: `{ type: 'tertiary' }`
+ * 7. secondaryButtonConfig: `{ type: 'tertiary', color: 'warn' }`
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * ### Example
+ * Use rvn-dialog-service to render this component
+ * 
+  ```ts
+   let dialog = this.dialogService.openComponentDialog({
+      component: FormTreeListComponent,
+      title: `Forms Relations`,
+      showActionBtns: false,
+      componentInputs: [
+        { key: 'forms', value: this.forms },
+        { key: 'formTrees', value: this.formTrees },
+      ]
+    });
+  ```
+ */
 @Component({
   selector: 'rvn-component-dialog',
   templateUrl: './rvn-component-dialog.component.html',

@@ -18,6 +18,21 @@ export interface RvnChipsInputInput {
     appearance?: FormFieldAppearance;
 }
 
+/**
+ * FormControl required: true
+ * 
+ * Config defaults:
+ * 1. required: false
+ * 2. requiredErrorMessage: `${this.config.label} is required`
+ * 3. styleVersion: 'v1'
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * @example
+ * <rvn-chips-input [config]="chipInput3" [formControl]="chipsFC"></rvn-chips-input>
+ * 
+ */
 @Component({
   selector: 'rvn-chips-input',
   templateUrl: './rvn-chips-input.component.html',

@@ -7,6 +7,21 @@ export interface RvnSidenavInput {
   toggleSidenav$?: Observable<null>;
 }
 
+/**
+ * Config defaults:
+ * 1. none
+ * 
+ * Supported ng-content selectors
+ * 1. sidenav
+ * 2. sidenavContent
+ * 
+ * @example
+ * <rvn-sidenav [config]='{toggleSidenav$: toggleSidenav$}'>
+ *                <div sidenav><rvn-nav-list [config]="{list: sideBarLinks}"></rvn-nav-list></div>
+ *                <div sidenavContent><router-outlet></router-outlet></div>
+ * </rvn-sidenav>
+ * 
+ */
 @Component({
   selector: 'rvn-sidenav',
   templateUrl: './rvn-sidenav.component.html',

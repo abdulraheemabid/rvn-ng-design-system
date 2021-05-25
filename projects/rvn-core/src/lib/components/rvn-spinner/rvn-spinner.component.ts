@@ -7,6 +7,18 @@ export interface RvnSpinnerInput {
    color?: ColorType;
 }
 
+/**
+ * Config defaults:
+ * 1. fullHeight: false
+ * 2. color: 'primary'
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * @example
+ * <rvn-spinner *ngIf="showLoader | async" [config]="{fullHeight: true}"></rvn-spinner>
+ * 
+ */
 @Component({
   selector: 'rvn-spinner',
   templateUrl: './rvn-spinner.component.html',

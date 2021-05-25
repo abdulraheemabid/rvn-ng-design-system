@@ -18,6 +18,22 @@ export interface RvnSelectInput {
     appearance?: FormFieldAppearance;
 }
 
+/**
+ * FormControl required: true
+ * 
+ * Config defaults:
+ * 1. styleVersion: 'v1'
+ * 2. required: false
+ * 3. requiredErrorMessage: `${this.config.label} is required`
+ * 4. disabled: false
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * @example
+ * <rvn-select [config]="selectInput" [formControl]="fc"></rvn-select>
+ * 
+ */
 @Component({
   selector: 'rvn-select',
   templateUrl: './rvn-select.component.html',

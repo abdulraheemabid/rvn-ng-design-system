@@ -14,7 +14,12 @@
     "publish-core:major": "cd projects/rvn-core && npm version major && ng build rvn-core --prod && xcopy \"./src/lib/styles\" \"../../dist/rvn-core/styles\" /E /I /Y && cd ../../dist/rvn-core && npm publish",
     "publish-forms:patch": "cd projects/rvn-forms && npm version patch && ng build rvn-forms --prod && cd ../../dist/rvn-forms && npm publish",
     "publish-forms:minor": "cd projects/rvn-forms && npm version minor && ng build rvn-forms --prod && cd ../../dist/rvn-forms && npm publish",
-    "publish-forms:major": "cd projects/rvn-forms && npm version major && ng build rvn-forms --prod && cd ../../dist/rvn-forms && npm publish"
+    "publish-forms:major": "cd projects/rvn-forms && npm version major && ng build rvn-forms --prod && cd ../../dist/rvn-forms && npm publish",
+    "docs-core": "npx compodoc -p ./projects/rvn-core/tsconfig.lib.json -d documentation/rvn-core",
+    "docs-core:serve": "npx compodoc -p ./projects/rvn-core/tsconfig.lib.json -d documentation/rvn-core -s",
+    "docs-forms": "npx compodoc -p ./projects/rvn-forms/tsconfig.lib.json -d documentation/rvn-forms",
+    "docs-forms:serve": "npx compodoc -p ./projects/rvn-forms/tsconfig.lib.json -d documentation/rvn-forms -s",
+    "docs": "npm run docs-core && npm run docs-forms"
   },
   "dependencies": {
     "@abdulraheemabid/rvn-pkg-ng-core": "~0.2.13",
@@ -38,6 +43,7 @@
     "@angular-devkit/build-angular": "~0.1102.11",
     "@angular/cli": "~11.2.11",
     "@angular/compiler-cli": "~11.2.12",
+    "@compodoc/compodoc": "^1.1.11",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",

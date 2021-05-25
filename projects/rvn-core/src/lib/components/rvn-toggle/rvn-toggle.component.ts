@@ -10,6 +10,21 @@ export interface RvnToggleInput {
   styleVersion?: "v1" | "v2" 
 }
 
+/**
+ * FormControl required: true
+ * 
+ * Config defaults:
+ * 1. styleVersion: 'v1'
+ * 2. required: true
+ * 3. requiredErrorMessage: `${this.config.label} is required`
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * @example
+ *  <rvn-toggle [config]="toggleInput" [formControl]="fc"></rvn-toggle>
+ * 
+ */
 @Component({
   selector: 'rvn-toggle',
   templateUrl: './rvn-toggle.component.html',

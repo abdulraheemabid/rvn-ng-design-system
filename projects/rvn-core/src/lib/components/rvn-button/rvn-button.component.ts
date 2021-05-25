@@ -11,6 +11,20 @@ export interface RvnButtonInput {
   tooltipMessage?: string;
 }
 
+/**
+ * Config defaults:
+ * 1. type: 'primary'
+ * 2. btnClass: ''
+ * 3. disabled: false
+ * 
+ * Supported ng-content selectors
+ * 1. Any content placed within tags will be rendered except for icon buttons
+ * 
+ * @example
+ * <rvn-button (onClick)="onClick()" [config]="{color: 'primary'}">Button</rvn-button>
+ * <rvn-button (onClick)="onClick()" [config]="{color: 'warn', type: 'secondary'}" [disabled]="true">Disabled</rvn-button>
+ * 
+ */
 @Component({
   selector: 'rvn-button',
   templateUrl: './rvn-button.component.html',

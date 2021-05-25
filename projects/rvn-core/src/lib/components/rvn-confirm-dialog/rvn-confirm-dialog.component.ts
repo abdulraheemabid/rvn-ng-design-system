@@ -12,6 +12,37 @@ export interface RvnConfirmDialogInput {
   noButtonConfig?: RvnButtonInput;
 }
 
+/** 
+ * Config defaults:
+ * 1. title: ''
+ * 2. messages: `['Are you sure?']`
+ * 3. yesButtonMessage: 'Yes'
+ * 4. noButtonMessage: 'No'
+ * 5. yesButtonConfig: `{ type: 'tertiary' }`
+ * 6. noButtonConfig: `{ type: 'tertiary' }`
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * ### Example
+ * Use rvn-dialog-service to render this component
+ * 
+  ```ts
+   this.dialogService.openConfirmDialog({
+      title: 'Confirm Delete',
+      messages: [`Form "${form.name}" will be deleted permanently and its child forms will become root forms.`, `Are you sure?`],
+      noButtonMessage: "Cancel",
+      yesButtonMessage: "Delete",
+      yesButtonConfig: { type: 'tertiary', color: 'warn' }
+    }).pipe(
+      switchMap((confirmed: boolean) => {
+        return confirmed ? this.formApiService.deleteForm(form.id) : of(null);
+      }))
+      .subscribe(val => {
+        if (val) this.ngOnInit();
+      })
+  ```
+ */
 @Component({
   selector: 'rvn-confirm-dialog',
   templateUrl: './rvn-confirm-dialog.component.html',

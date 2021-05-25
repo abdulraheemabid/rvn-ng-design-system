@@ -10,6 +10,17 @@ export interface RvnChipsInput {
     }[];
 }
 
+/** 
+ * Config defaults:
+ * 1. list: []
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * @example
+ * <rvn-chips [config]="chipsConfig"></rvn-chips>
+ * 
+ */
 @Component({
   selector: 'rvn-chips',
   templateUrl: './rvn-chips.component.html',

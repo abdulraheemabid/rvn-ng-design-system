@@ -18,6 +18,22 @@ export interface RvnInputInput {
     suffixIcon?: string;
 }
 
+/**
+ * FormControl required: true
+ * 
+ * Config defaults:
+ * 1. type: 'text'
+ * 2. required: false
+ * 3. styleVersion: 'v1'
+ * 4. requiredErrorMessage: `${this.config.label} is required`
+ * 
+ * Supported ng-content selectors
+ * 1. none
+ * 
+ * @example
+ * <rvn-input [config]="textFieldInput2" [formControl]="fc"></rvn-input>
+ * 
+ */
 @Component({
   selector: 'rvn-input',
   templateUrl: './rvn-input.component.html',
