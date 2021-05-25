@@ -2,6 +2,10 @@ import { Component, Injector, ViewChild } from "@angular/core";
 import { ControlValueAccessor, FormControl, FormControlDirective, NgControl } from "@angular/forms";
 
 @Component({ template: '' })
+/**
+ * All components which are form fields and need features like [formControl] or [(ngModel)],
+ * should inherit this class
+ */
 export abstract class CustomFormControlValueAccessor implements ControlValueAccessor {
 
     constructor(private injector: Injector) { }

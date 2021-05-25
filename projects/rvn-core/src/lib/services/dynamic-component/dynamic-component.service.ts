@@ -6,10 +6,16 @@ import { isNullOrUndefined } from '../../utils/funtions.util';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Use this service for dynamically ingecting components
+ */
 export class DynamicComponentService {
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
+  /**
+   * Call this function if want to ingect a component into a viewContainerRef.
+   */
   public injectComponent(viewContainerRef: ViewContainerRef, component: any, inputs: KeyValue<string, any>[], clearContainer: boolean = true) {
 
     return new Observable<ComponentRef<any>>(
