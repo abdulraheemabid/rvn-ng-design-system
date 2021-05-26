@@ -10,6 +10,10 @@ export interface RecordViewInput {
   record: IRecord
 }
 
+/**
+ * This components displays all entered fields of form in a detail view, including parents and metadata.
+ * This can be used e.g in record table's expansion view.
+ */
 @Component({
   selector: 'record-view',
   templateUrl: './record-view.component.html',

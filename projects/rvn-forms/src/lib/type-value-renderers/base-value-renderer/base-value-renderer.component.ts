@@ -1,6 +1,9 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
-import { FieldType } from '../../types';
+import { Component, Input } from '@angular/core';
 
+/**
+ * All value renderers should inherit this calss which contains inputs needed for each value renderer.
+ * All value renderers need a value input to display.
+ */
 @Component({
   selector: 'base-value-renderer',
   templateUrl: './base-value-renderer.component.html',
@@ -8,7 +11,6 @@ import { FieldType } from '../../types';
 })
 export class BaseValueRendererComponent {
 
-  @Input() type: FieldType;
   @Input() value: any;
 
   constructor() {

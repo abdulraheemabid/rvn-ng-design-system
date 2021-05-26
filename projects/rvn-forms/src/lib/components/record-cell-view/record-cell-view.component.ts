@@ -8,6 +8,10 @@ export interface RecordCellViewInput {
   form: IForm;
 }
 
+/**
+ * This component dynamically injects the value renderer for any specific field type.
+ * Requires form, which fieldId to show and its value.
+ */
 @Component({
   selector: 'record-cell-view',
   templateUrl: './record-cell-view.component.html',

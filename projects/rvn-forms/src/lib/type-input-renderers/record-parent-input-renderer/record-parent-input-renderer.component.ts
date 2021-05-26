@@ -12,6 +12,12 @@ export interface RecordParentInputRendererInput {
   disableButton?: boolean;
 }
 
+/**
+ * This component is used to get user selection of record's parent.
+ * 
+ * It works in two modes. 'view' mode will show the selected record id (if selected) and a button which launches a dialog which shows the same component
+ * in 'select' mode. Which is a table of parent records from which the user can make a selection.
+ */
 @Component({
   selector: 'record-parent-input-renderer',
   templateUrl: './record-parent-input-renderer.component.html',

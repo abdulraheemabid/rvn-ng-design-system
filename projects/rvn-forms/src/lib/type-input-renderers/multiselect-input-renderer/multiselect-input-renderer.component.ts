@@ -10,7 +10,6 @@ import { BaseInputRendererComponent } from '../base-input-renderer/base-input-re
 })
 export class MultiselectInputRendererComponent extends BaseInputRendererComponent implements OnInit {
 
-  //fg: FormGroup;
   config: any;
 
   ngOnInit(): void {
@@ -22,15 +21,7 @@ export class MultiselectInputRendererComponent extends BaseInputRendererComponen
 
     switch (this.UIControl) {
       case UIControlEnum.CHECKBOX:
-
         this.config.checkboxOptions = this.fieldDefinition.arrayValues;
-
-        // //checkbox needs formGroup instead of FC  
-        // this.fg = this.fb.group({});
-        // this.fg.valueChanges.subscribe(v => {
-        //   this.valueFC.setValue(this.fg.get("checkboxArray").value);
-        // })
-
         break;
       case UIControlEnum.CHIPSINPUT:
         this.config.placeholder = "Pick values from list";

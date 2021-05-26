@@ -19,6 +19,18 @@ export interface FormRendererInput {
   preSelectedParentRecordId?: number;
 }
 
+/**
+ * Used for creating the input form for a given form definition.
+ * 
+ * This component can be used in three modes, when creating a new record for form, editing a record or just to view 
+ * how form will look like for a given definition.
+ * 
+ * For any mode, formDefinition should be passed in. If its edit mode, IRecord would be needed.
+ * 
+ * If this record can contain a parent record, pass in list of parent records and form.
+ * 
+ * It outputs a formGroup which reflects user selection for entire form.
+ */
 @Component({
   selector: 'form-renderer',
   templateUrl: './form-renderer.component.html',

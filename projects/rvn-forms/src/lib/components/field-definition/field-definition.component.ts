@@ -11,6 +11,15 @@ export interface FieldDefinitionInput{
   fieldFG: FormGroup;
 }
 
+/**
+ * Used for rendering field definition when we are creating/editing a form's definition.
+ * 
+ * This component only requires a Form Control which has properties defined for a field.
+ * 
+ * This handles rendering the name field, required and type. And based on user selection of `Type`, 
+ * that specific type's definition renderer gets ingected into the dom and their selected values gets
+ * reflected in the passed in form control.
+ */
 @Component({
   selector: 'field-definition',
   templateUrl: './field-definition.component.html',

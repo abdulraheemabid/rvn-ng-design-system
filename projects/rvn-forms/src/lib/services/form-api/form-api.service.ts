@@ -9,6 +9,10 @@ import { FormDTO, ChildRelationType } from "./form-api.dto";
 import { Environment } from "../../forms-service.module";
 
 
+/**
+ * This service is responsible for calling the server and transforming the payload pre/post REST call.
+ * All API calls should be encapsulated here. If this class becomes huge, then create other services also create a seperate APIService module. 
+ */
 @Injectable({
   providedIn: 'root'
 })

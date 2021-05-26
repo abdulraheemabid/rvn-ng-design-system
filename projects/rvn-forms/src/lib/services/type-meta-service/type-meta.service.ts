@@ -4,6 +4,13 @@ import { Inject, Injectable } from '@angular/core';
 import { FieldType, IFieldTypeMeta, IFieldTypeMetaConfig } from '../../types';
 import { fieldTypeMetaDataConfig } from './field-type-metadata';
 
+/**
+ * This service handles fetching configurations for form field's `TYPE`.
+ * 
+ * Type's metadata config contains type's definition, input & value renderers. Its a json config which follows `IFieldTypeMetaConfig` interface.
+ * Default config has been set in field-type-metadata.ts. But the consumer of this service can pass in their own config which will override the defaults.
+ * 
+ */
 @Injectable({
   providedIn: 'root'
 })

@@ -14,6 +14,11 @@ export class FormService {
 
   constructor(private typeMetaService: TypeMetaService, private dynamicComponentService: DynamicComponentService, private fb: FormBuilder) { }
 
+  /**
+   * Use this to ingect a type definition renderer in a view container.
+   * 
+   * It takes in a type to show, gets the configured definition renderer for it from typeMetaService and ingects it in a given viewContainerRef
+   */
   injectTypeDefinitionRenderer(type: KeyValue<FieldType, string>, viewContainerRef: ViewContainerRef, fieldFormGroup: FormGroup): Observable<ComponentRef<any>> {
 
     const componentToRender = this.typeMetaService.getFieldTypeMetaData(type)?.definitionRenderer;
@@ -26,6 +31,11 @@ export class FormService {
 
   }
 
+  /**
+  * Use this to ingect a type input renderer in a view container.
+  * 
+  * It takes in a field to show, gets the configured input renderer for it from typeMetaService and ingects it in a given viewContainerRef
+  */
   injectTypeInputRenderer(field: IFormField, viewContainerRef: ViewContainerRef, valueFC: FormControl): Observable<ComponentRef<any>> {
 
     let typeMeta = this.typeMetaService.getFieldTypeMetaData(field.type);
@@ -44,6 +54,11 @@ export class FormService {
 
   }
 
+  /**
+   * Use this to ingect a type value renderer in a view container.
+   * 
+   * It takes in a field to show, gets the configured value renderer for it from typeMetaService and ingects it in a given viewContainerRef
+   */
   injectTypeValueRenderer(fieldType: FieldType, viewContainerRef: ViewContainerRef, value: any): Observable<ComponentRef<any>> {
 
     let typeMeta = this.typeMetaService.getFieldTypeMetaData(fieldType);
@@ -55,6 +70,9 @@ export class FormService {
 
   }
 
+  /**
+   * Returns a Form Group for a new record to be created.
+   */
   getNewRecordFG(formDefinition: IForm, keyForFieldControlId: string = "id") {
     const parentValidator = isNullOrUndefined(formDefinition?.attributes?.parentForm?.formId) ? [] : [Validators.required];
     let recordFg = this.fb.group({
@@ -74,6 +92,9 @@ export class FormService {
     return recordFg;
   }
 
+  /**
+   * Returns a Form Group for a record. It uses formDefinition to generate the Form Group and uses record to pre-populate the fields in the Form Group.
+   */
   getRecordFG(formDefinition: IForm, record: IRecord) {
     const parentValidator = isNullOrUndefined(formDefinition?.attributes?.parentForm?.formId) ? [] : [Validators.required];
     let recordFg = this.fb.group({
@@ -97,6 +118,9 @@ export class FormService {
     return recordFg;
   }
 
+  /**
+   * Returns a Form Group for an existing form. It generate the form group using the definition and pre-populate the fields in the Form Group
+   */
   getDefinitionFG(form: IForm) {
     let fg = this.fb.group({
       id: [form.id],
@@ -137,6 +161,9 @@ export class FormService {
 
   }
 
+  /**
+   * Returns a Form Group needed to create a new Form Definition.
+   */
   getNewDefinitionFG() {
     return this.fb.group({
       attributes: this.fb.group({
@@ -151,6 +178,9 @@ export class FormService {
     })
   }
 
+  /**
+   * Returns a Form Group needed to create a new field in a form.
+   */
   getNewFieldFG() {
     return this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -169,6 +199,9 @@ export class FormService {
     return name;
   }
 
+  /**
+   * Returns dummy form and records that could be used for form preview.
+   */
   getDummyFormAndRecords() {
     return {
       form: {

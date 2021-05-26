@@ -18,6 +18,10 @@ import { IFieldTypeMetaConfig } from './types';
     ]
 })
 export class RvnServicesModule {
+    /**
+     * All consumers must pass in environment object which contains restBaseUrl which will be used in API service.
+     * Consumers may pass in typeMetaConfig if they want to overide field type's behaviour.
+     */
 
     public static forRoot(environment: Environment, typeMetaConfig: IFieldTypeMetaConfig = null): ModuleWithProviders<RvnServicesModule> {
         return {

@@ -7,12 +7,22 @@ import { ReactiveFormUtilityService } from '../../services/reactive-form-utility
 import { FormService } from '../../services/form/form.service';
 
 export interface FormDefinitionInput{
-  form: IForm;
-  markFGAsDirtySubject$: Subject<any>;
+  form?: IForm;
+  markFGAsDirtySubject$?: Subject<any>;
   mode: CreateOrEdit;
   formsList: IForm[];
 }
 
+/**
+ * Used for rendering form's definition when we are creating/editing a form. 
+ * It handles setting form name and its fields, fields can be added/edited or deleted.
+ * 
+ * This component takes a mode which can be either create or edit. In case of edit, form would be required
+ * markFGAsDirtySubject$ can be optionally passed in if we want to mark the form dirty from parent component.
+ * formsList is needed to render the parent selection dropdown.
+ * 
+ * It outputs a formGroup which reflects user selection for entire form.
+ */
 @Component({
   selector: 'form-definition',
   templateUrl: './form-definition.component.html',

@@ -9,6 +9,11 @@ export interface RecordTableInput {
   actionsTemplate?: TemplateRef<any>;
 }
 
+/**
+ * Its a wrapper components which takes in records and form definition and display those records in a table.
+ * Since this component's logic is used in multiple location, showing data using value renderes logic has been encapsulated 
+ * here so it can be resued. 
+ */
 @Component({
   selector: 'record-table',
   templateUrl: './record-table.component.html',

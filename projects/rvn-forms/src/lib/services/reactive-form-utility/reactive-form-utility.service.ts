@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormArray, FormControl, AbstractControl } from '@angular/forms';
 
+/**
+ * Bundles common functionality needed to work with Angular's Reactive Forms.
+ */
 @Injectable({
   providedIn: 'root'
 })

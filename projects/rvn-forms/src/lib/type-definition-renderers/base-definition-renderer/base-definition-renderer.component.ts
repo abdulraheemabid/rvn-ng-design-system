@@ -3,6 +3,10 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { isNullOrUndefined } from '@abdulraheemabid/rvn-pkg-ng-core';
 import { FieldType } from '../../types';
 
+/**
+ * All definition renderers should inherit this calss which contains inputs and functions needed for each definition renderer.
+ * All definition renderers need a FormGroup and selected type as inputs in order to output the content.
+ */
 @Component({
   selector: 'base-definition-renderer',
   templateUrl: './base-definition-renderer.component.html',

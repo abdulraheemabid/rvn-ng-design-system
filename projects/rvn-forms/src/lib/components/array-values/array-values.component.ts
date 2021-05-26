@@ -5,7 +5,10 @@ import { FormControl } from "@angular/forms";
 export interface ArrayValuesInput {
   uiFormControl: FormControl;
 }
-
+/**
+ * Used to render array values of a given fields.
+ * Ideally wouldnt need to use this component directly, it will be only used by form-definition-renderer 
+ */
 @Component({
   selector: 'array-values',
   templateUrl: './array-values.component.html',

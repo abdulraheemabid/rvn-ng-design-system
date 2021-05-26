@@ -11,6 +11,10 @@ export interface ChooseUiControlInput {
   uiFormControl: FormControl;
 }
 
+/**
+ * Used to render a select component to choose how field should be displayed.
+ * Ideally wouldnt need to use this component directly, it will be only used by form-definition-renderer 
+ */
 @Component({
   selector: 'choose-ui-control',
   templateUrl: './choose-ui-control.component.html',
