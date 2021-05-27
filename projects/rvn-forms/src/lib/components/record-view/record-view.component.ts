@@ -43,7 +43,7 @@ export class RecordViewComponent implements OnInit {
     });
   }
 
-  ingectValueRenderers(field: IFormField, value: any) {
+  ingectValueRenderers(field: IFormField, value: unknown) {
     const ref = this.valueRendererAnchor.get(field.attributes.position);
     this.formService.injectTypeValueRenderer(field.type.key, ref, value).subscribe(() => { }, err => { console.log(err) });
   }

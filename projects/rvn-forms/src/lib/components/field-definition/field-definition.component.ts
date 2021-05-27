@@ -49,7 +49,7 @@ export class FieldDefinitionComponent implements OnInit {
       setTimeout(() => {
         const fielTypKeyValue = this.fieldTypeCompConfig.selectOptions.find(o => o.key === fieldTypeValue.key);
         fieldTypeFC.setValue(fielTypKeyValue, { emitEvent: false });
-        this.loadTypeRenderer(fielTypKeyValue);
+        this.loadTypeRenderer(fielTypKeyValue as  KeyValue<FieldType, string>);
       })
     }
   }

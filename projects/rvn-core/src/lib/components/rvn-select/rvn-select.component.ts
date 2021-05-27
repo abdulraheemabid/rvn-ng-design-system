@@ -1,6 +1,6 @@
 import { Component, forwardRef, Injector, Input, OnInit } from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { RvnStyleService } from '../../services/style/style.service';
 import { CustomFormControlValueAccessor } from '../../utils/custom-form-control-value-accessor';
 import { isKeyValue, isNullOrUndefined } from '../../utils/funtions.util';
@@ -13,7 +13,7 @@ export interface RvnSelectInput {
     required?: boolean;
     hint?: string;
     requiredErrorMessage?: string;
-    selectOptions: KeyValue<any, any>[];
+    selectOptions: KeyValue<unknown, unknown>[];
     styleVersion?: "v1" | "v2";
     appearance?: FormFieldAppearance;
 }
@@ -53,7 +53,7 @@ export class RvnSelectComponent extends CustomFormControlValueAccessor implement
   }
 
   @Input() config: RvnSelectInput = null;
-  formFieldAppearance: any;
+  formFieldAppearance$: Observable<FormFieldAppearance>;
   @Input() disabled: boolean;
   defaultConfig: RvnSelectInput = {
     label: null,
@@ -76,7 +76,7 @@ export class RvnSelectComponent extends CustomFormControlValueAccessor implement
     if (isNullOrUndefined(this.config.requiredErrorMessage)) this.config.requiredErrorMessage = `${this.config.label} is required`;
     if (isNullOrUndefined(this.config.styleVersion)) this.config.styleVersion = 'v1';
     if (isNullOrUndefined(this.disabled)) this.disabled = false;
-    this.formFieldAppearance = isNullOrUndefined(this.config?.appearance) ? this.styleService.getFormFieldStyle$ : of(this.config.appearance);
+    this.formFieldAppearance$ = isNullOrUndefined(this.config?.appearance) ? this.styleService.getFormFieldStyle$ : of(this.config.appearance);
     this.initValueIfAlreadyExists();
   }
 

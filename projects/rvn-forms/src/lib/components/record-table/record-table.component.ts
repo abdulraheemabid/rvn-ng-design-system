@@ -1,12 +1,11 @@
+import { isNullOrUndefined, RvnTableInput } from '@abdulraheemabid/rvn-pkg-ng-core';
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
-import { isNullOrUndefined } from '@abdulraheemabid/rvn-pkg-ng-core';
-import { RvnTableInput } from '@abdulraheemabid/rvn-pkg-ng-core';
-import { IForm } from "../../types";
+import { IForm, IRecord } from "../../types";
 
 export interface RecordTableInput {
   tableConfig: RvnTableInput;
   formDefinition: IForm;
-  actionsTemplate?: TemplateRef<any>;
+  actionsTemplate?: TemplateRef<unknown>;
 }
 
 /**
@@ -23,18 +22,18 @@ export class RecordTableComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild("cell", { static: true }) cellTemplate: TemplateRef<any>;
-  @ViewChild("updatedOnTemplate", { static: true }) updatedOnTemplate: TemplateRef<any>;
-  @ViewChild("expandedContent", { static: true }) expandedContentTemplate: TemplateRef<any>;
+  @ViewChild("cell", { static: true }) cellTemplate: TemplateRef<unknown>;
+  @ViewChild("updatedOnTemplate", { static: true }) updatedOnTemplate: TemplateRef<unknown>;
+  @ViewChild("expandedContent", { static: true }) expandedContentTemplate: TemplateRef<unknown>;
 
   @Input() config: RecordTableInput;
-  @Output() rowClicked: EventEmitter<any> = new EventEmitter<any>();
+  @Output() rowClicked: EventEmitter<unknown> = new EventEmitter<unknown>();
 
   initDone: boolean = false;
 
   ngOnInit(): void {
     this.config.tableConfig.data = this.config?.tableConfig.data.map(record => {
-      record = { ...record.entry, ...record, };
+      record = { ...(record as IRecord).entry, ...(record as IRecord), };
       return record;
     });
 

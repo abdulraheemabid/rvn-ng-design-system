@@ -1,5 +1,5 @@
 import { KeyValue } from '@angular/common';
-import { ComponentFactoryResolver, ComponentRef, Injectable, ViewContainerRef } from '@angular/core';
+import { ComponentFactoryResolver, ComponentRef, Injectable, Type, ViewContainerRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { isNullOrUndefined } from '../../utils/funtions.util';
 
@@ -16,9 +16,9 @@ export class DynamicComponentService {
   /**
    * Call this function if want to ingect a component into a viewContainerRef.
    */
-  public injectComponent(viewContainerRef: ViewContainerRef, component: any, inputs: KeyValue<string, any>[], clearContainer: boolean = true) {
+  public injectComponent(viewContainerRef: ViewContainerRef, component: Type<unknown>, inputs: KeyValue<string, unknown>[], clearContainer: boolean = true) {
 
-    return new Observable<ComponentRef<any>>(
+    return new Observable<ComponentRef<unknown>>(
       sub => {
         const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
         if (!isNullOrUndefined(componentFactory)) {

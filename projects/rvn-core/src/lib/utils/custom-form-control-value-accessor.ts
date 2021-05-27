@@ -18,15 +18,15 @@ export abstract class CustomFormControlValueAccessor implements ControlValueAcce
         return ngControl.control as FormControl;
     }
 
-    registerOnTouched(fn: any): void {
+    registerOnTouched(fn: unknown): void {
         this.formControlDirective?.valueAccessor.registerOnTouched(fn);
     }
 
-    registerOnChange(fn: any): void {
+    registerOnChange(fn: unknown): void {
         this.formControlDirective?.valueAccessor.registerOnChange(fn);
     }
 
-    writeValue(obj: any): void {
+    writeValue(obj: unknown): void {
         this.formControlDirective?.valueAccessor.writeValue(obj);
     }
 

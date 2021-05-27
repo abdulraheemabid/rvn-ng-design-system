@@ -22,7 +22,7 @@
     "docs": "npm run docs-core && npm run docs-forms"
   },
   "dependencies": {
-    "@abdulraheemabid/rvn-pkg-ng-core": "~0.2.13",
+    "@abdulraheemabid/rvn-pkg-ng-core": "~0.2.14",
     "@angular/animations": "~11.2.12",
     "@angular/cdk": "^11.2.12",
     "@angular/common": "~11.2.10",

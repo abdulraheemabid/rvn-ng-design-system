@@ -1,4 +1,4 @@
-import { Component, ComponentRef, EventEmitter, Inject, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentRef, EventEmitter, Inject, OnInit, Output, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DynamicComponentService } from '../../services/dynamic-component/dynamic-component.service';
 import { isNullOrUndefined } from '../../utils/funtions.util';
@@ -7,8 +7,8 @@ import { RvnButtonInput } from '../rvn-button/rvn-button.component';
 
 export interface RvnComponentDialogInput {
   title?: string;
-  component: any;
-  componentInputs?: KeyValue<string, any>[];
+  component: Type<unknown>;
+  componentInputs?: KeyValue<string, unknown>[];
   showActionBtns?: boolean;
   showOnlyPrimaryButton?: boolean;
   primaryButtonMessage?: string;
@@ -58,7 +58,7 @@ export class RvnComponentDialogComponent implements OnInit {
   ) { }
 
   @ViewChild("componentAnchorPoint", { read: ViewContainerRef }) componentAnchorPoint: ViewContainerRef;
-  @Output() componentRef: EventEmitter<ComponentRef<any>> = new EventEmitter();
+  @Output() componentRef: EventEmitter<ComponentRef<unknown>> = new EventEmitter();
   config: RvnComponentDialogInput;
   defaultConfig: RvnComponentDialogInput = {
     title: "",

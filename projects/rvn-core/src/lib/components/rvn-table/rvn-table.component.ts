@@ -7,12 +7,12 @@ import { MatTableDataSource } from '@angular/material/table';
 import { isNullOrUndefined } from '../../utils/funtions.util';
 
 export interface RvnTableInput {
-  data: any[];
+  data: unknown[];
   columnsToDisplay: {
     keyName: string,
     displayName?: string,
     textAlign?: "center" | "left" | "right",
-    customTemplate?: TemplateRef<any>;
+    customTemplate?: TemplateRef<unknown>;
     backgroundClass?: string;
   }[];
   enableFilter?: boolean;
@@ -22,7 +22,7 @@ export interface RvnTableInput {
   stickColumnsAtEndIndexes?: number[];
   noDataMessage?: string;
   noDataOnFilterMessage?: string;
-  expandedRowTemplate?: TemplateRef<any>
+  expandedRowTemplate?: TemplateRef<unknown>
   enablePagination?: boolean;
   pageOptions?: number[];
 }
@@ -105,7 +105,7 @@ export class RvnTableComponent implements OnInit {
   @ViewChild("columValueComponentAnchor", { read: ViewContainerRef }) columValueComponentAnchor: ViewContainerRef;
   @ViewChild("expandedComponentAnchor", { read: ViewContainerRef }) expandedComponentAnchor: ViewContainerRef;
   @Input() config: RvnTableInput;
-  @Output() rowClicked: EventEmitter<any> = new EventEmitter<any>();
+  @Output() rowClicked: EventEmitter<unknown> = new EventEmitter<unknown>();
   hasExpandedContent: boolean = false;
 
   dataSource;

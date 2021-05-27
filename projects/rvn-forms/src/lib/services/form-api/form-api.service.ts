@@ -4,7 +4,7 @@ import { Observable, of } from "rxjs";
 import { switchMap, map } from "rxjs/operators";
 import { isKeyValue, isNullOrUndefined } from '@abdulraheemabid/rvn-pkg-ng-core';
 import { TypeMetaService } from "../type-meta-service/type-meta.service";
-import { IForm, IFormRelation, IId, IRecord } from "../../types";
+import { IForm, IFormFieldAtrribute, IFormRelation, IId, IRecord } from "../../types";
 import { FormDTO, ChildRelationType } from "./form-api.dto";
 import { Environment } from "../../forms-service.module";
 
@@ -122,8 +122,8 @@ export class FormApiService {
         const typeDisplayValue = this.typeService.getFieldTypes().find(ft => ft.key === f.type).value;
         return {
           ...f,
-          attributes: f.attributes as any,
-          arrayValues: f.arrayValues?.map(v => { return { "key": v, "value": v } as any }),
+          attributes: f.attributes as IFormFieldAtrribute,
+          arrayValues: f.arrayValues?.map(v => { return { "key": v, "value": v } }),
           type: { key: f.type, value: typeDisplayValue }
         }
       })

@@ -94,7 +94,7 @@ export class RecordParentInputRendererComponent implements OnInit {
     });
 
     dialogRefOutput.componentRef.subscribe(compRef => {
-      compRef.instance.parentSelected.subscribe((value: IRecord) => {
+      (compRef.instance as RecordParentInputRendererComponent).parentSelected.subscribe((value: IRecord) => {
         this.selectedParent = value;
       });
     })

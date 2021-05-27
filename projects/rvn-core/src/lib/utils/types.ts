@@ -8,3 +8,8 @@ export interface IApiResponseWrapper {
     data: any;
     message: string;
 }
+
+export interface GenericObjectWithId {
+    [key: string]: unknown;
+    id: number;
+}

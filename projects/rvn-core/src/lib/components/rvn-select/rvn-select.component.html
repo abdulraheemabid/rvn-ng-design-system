@@ -2,7 +2,7 @@
 
     <span *ngIf="config?.styleVersion == 'v1'" class="label">{{config?.label}}:</span>
 
-    <mat-form-field class="form-field" [appearance]="formFieldAppearance | async" [ngClass]="{'disabled': disabled}">
+    <mat-form-field class="form-field" [appearance]="formFieldAppearance$ | async" [ngClass]="{'disabled': disabled}">
         <mat-label class="label">
             <span *ngIf="config?.styleVersion == 'v2' && config?.label"> {{config?.label}}</span>
             <span *ngIf="config?.styleVersion == 'v1' && config?.placeholder">{{config?.placeholder}}</span>

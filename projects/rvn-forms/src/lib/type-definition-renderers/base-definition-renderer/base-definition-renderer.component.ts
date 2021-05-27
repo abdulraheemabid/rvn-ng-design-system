@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ValidatorFn } from '@angular/forms';
 import { isNullOrUndefined } from '@abdulraheemabid/rvn-pkg-ng-core';
 import { FieldType } from '../../types';
 
@@ -18,7 +18,7 @@ export class BaseDefinitionRendererComponent {
 
   constructor(public fb: FormBuilder) { }
 
-  createFormControlIfNotExists(controlName: string, defaultValue: any, validatorOptions?: any[], insideAttributes: boolean = false): FormControl {
+  createFormControlIfNotExists(controlName: string, defaultValue: unknown, validatorOptions?: ValidatorFn[], insideAttributes: boolean = false): FormControl {
 
     let fg = insideAttributes ? this.fieldFG.get("attributes") as FormGroup : this.fieldFG;
 

@@ -8,7 +8,7 @@ import { FormService } from '../../services/form/form.service';
 
 export interface FormDefinitionInput{
   form?: IForm;
-  markFGAsDirtySubject$?: Subject<any>;
+  markFGAsDirtySubject$?: Subject<unknown>;
   mode: CreateOrEdit;
   formsList: IForm[];
 }

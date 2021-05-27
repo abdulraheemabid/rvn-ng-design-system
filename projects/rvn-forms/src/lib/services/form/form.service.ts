@@ -19,13 +19,13 @@ export class FormService {
    * 
    * It takes in a type to show, gets the configured definition renderer for it from typeMetaService and ingects it in a given viewContainerRef
    */
-  injectTypeDefinitionRenderer(type: KeyValue<FieldType, string>, viewContainerRef: ViewContainerRef, fieldFormGroup: FormGroup): Observable<ComponentRef<any>> {
+  injectTypeDefinitionRenderer(type: KeyValue<FieldType, string>, viewContainerRef: ViewContainerRef, fieldFormGroup: FormGroup): Observable<ComponentRef<unknown>> {
 
     const componentToRender = this.typeMetaService.getFieldTypeMetaData(type)?.definitionRenderer;
 
-    if (!componentToRender) return new Observable<ComponentRef<any>>(sub => sub.error("cant find componentToRender"));
+    if (!componentToRender) return new Observable<ComponentRef<unknown>>(sub => sub.error("cant find componentToRender"));
 
-    const inputs: KeyValue<string, any>[] = [{ key: "fieldFG", value: fieldFormGroup }, { key: "selectedType", value: type.key }]
+    const inputs: KeyValue<string, unknown>[] = [{ key: "fieldFG", value: fieldFormGroup }, { key: "selectedType", value: type.key }]
 
     return this.dynamicComponentService.injectComponent(viewContainerRef, componentToRender, inputs);
 
@@ -36,7 +36,7 @@ export class FormService {
   * 
   * It takes in a field to show, gets the configured input renderer for it from typeMetaService and ingects it in a given viewContainerRef
   */
-  injectTypeInputRenderer(field: IFormField, viewContainerRef: ViewContainerRef, valueFC: FormControl): Observable<ComponentRef<any>> {
+  injectTypeInputRenderer(field: IFormField, viewContainerRef: ViewContainerRef, valueFC: FormControl): Observable<ComponentRef<unknown>> {
 
     let typeMeta = this.typeMetaService.getFieldTypeMetaData(field.type);
     let rendererConfig;
@@ -44,7 +44,7 @@ export class FormService {
 
     if (typeMeta.inputRenderers.length === 1) rendererConfig = typeMeta.inputRenderers[0];
     else if (!isNullOrUndefined(field.attributes?.displayAs?.key)) rendererConfig = typeMeta.inputRenderers.filter(r => r.UIControl === field.attributes.displayAs.key)[0];
-    else return new Observable<ComponentRef<any>>(sub => sub.error("field.attributes?.displayAs?.key not set"));
+    else return new Observable<ComponentRef<unknown>>(sub => sub.error("field.attributes?.displayAs?.key not set"));
 
     componentToRender = rendererConfig.renderer;
 
@@ -59,7 +59,7 @@ export class FormService {
    * 
    * It takes in a field to show, gets the configured value renderer for it from typeMetaService and ingects it in a given viewContainerRef
    */
-  injectTypeValueRenderer(fieldType: FieldType, viewContainerRef: ViewContainerRef, value: any): Observable<ComponentRef<any>> {
+  injectTypeValueRenderer(fieldType: FieldType, viewContainerRef: ViewContainerRef, value: unknown): Observable<ComponentRef<unknown>> {
 
     let typeMeta = this.typeMetaService.getFieldTypeMetaData(fieldType);
     const rendererConfig = typeMeta.valueRenderers[0];

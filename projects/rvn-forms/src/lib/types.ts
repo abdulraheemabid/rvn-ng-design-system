@@ -26,13 +26,15 @@ export interface IFormField {
     required: boolean;
     validationRegex?: string;
     arrayValues?: KeyValue<string, string>[];
-    attributes?: {
-        position: number;
-        displayAs?: KeyValue<string, UIControlEnum>;
-    };
+    attributes?: IFormFieldAtrribute;
     markDeleted?: boolean;
     createdOn?: string;
     updatedOn?: string;
+}
+
+export interface IFormFieldAtrribute {
+    position: number;
+    displayAs?: KeyValue<string, UIControlEnum>;
 }
 
 export interface IRecord {

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { isNullOrUndefined } from '../../utils/funtions.util';
+import { GenericObjectWithId } from '../../utils/types';
 
 export interface RvnOrgChartInput {
   data: OrgChartNode;
@@ -7,7 +8,7 @@ export interface RvnOrgChartInput {
   expandAll?: boolean;
   rootStyleClass?: string;
   leafStyleClass?: string;
-  lookUpData?: any[];
+  lookUpData?: GenericObjectWithId[];
   useLookUpWithId?: boolean;
 }
 
@@ -39,11 +40,10 @@ export class RvnOrgChartComponent implements OnInit {
 
   constructor() { }
 
-  @Input() config: RvnOrgChartInput = {} as any;
+  @Input() config: RvnOrgChartInput = {keyForLabel: null, data: null};
   initDone: boolean = false;
 
   ngOnInit(): void {
-    if (isNullOrUndefined(this.config)) this.config = {} as any;
     if (isNullOrUndefined(this.config.keyForLabel)) this.config.keyForLabel = Object.keys(this.config.data)[0];
 
     this.handleRoot();
@@ -52,7 +52,7 @@ export class RvnOrgChartComponent implements OnInit {
 
   handleRoot() {
     if (this.config.useLookUpWithId && !isNullOrUndefined(this.config.lookUpData))
-      this.config.data.label = this.config.lookUpData.filter(lk => lk.id == this.config.data.id)[0][this.config.keyForLabel];
+      this.config.data.label = this.config.lookUpData.filter(lk => lk.id == this.config.data.id)[0][this.config.keyForLabel].toString();
     else
       this.config.data.label = this.config.data[this.config.keyForLabel].toString();
 
@@ -68,12 +68,12 @@ export class RvnOrgChartComponent implements OnInit {
   }
 
   handleChildren(children: OrgChartNode[]) {
-    children.forEach((item: any) => {
+    children.forEach(item => {
       const isLeaf = isNullOrUndefined(item?.children) || item?.children?.length === 0;
 
       let styleClasses = ["rvn-org-chart-node", "rvn-org-chart-leaf-node"];
       if (this.config.useLookUpWithId && !isNullOrUndefined(this.config.lookUpData))
-        item.label = this.config.lookUpData.filter(lk => lk.id == item.id)[0][this.config.keyForLabel];
+        item.label = this.config.lookUpData.filter(lk => lk.id == item.id)[0][this.config.keyForLabel].toString();
       else
         item.label = item[this.config.keyForLabel].toString();
 

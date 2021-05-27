@@ -15,7 +15,7 @@ export interface FormRendererInput {
   record?: IRecord;
   parentRecords?: IRecord[];
   parentForm?: IForm;
-  markFGAsDirtySubject$?: Subject<any>;
+  markFGAsDirtySubject$?: Subject<unknown>;
   preSelectedParentRecordId?: number;
 }
 
