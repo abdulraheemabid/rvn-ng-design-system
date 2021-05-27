@@ -55,8 +55,22 @@ export class RvnSelectComponent extends CustomFormControlValueAccessor implement
   @Input() config: RvnSelectInput = null;
   formFieldAppearance: any;
   @Input() disabled: boolean;
+  defaultConfig: RvnSelectInput = {
+    label: null,
+    placeholder: null,
+    required: false,
+    hint: null,
+    requiredErrorMessage: null,
+    selectOptions: [],
+    styleVersion: "v1",
+    appearance: null
+  }
 
   ngOnInit() {
+
+    //TODO: test defaults
+    //this.config = {...this.defaultConfig, ...this.config};
+
     if (isNullOrUndefined(this.config)) this.config = { label: null, selectOptions: null };
     if (isNullOrUndefined(this.config.required)) this.config.required = false;
     if (isNullOrUndefined(this.config.requiredErrorMessage)) this.config.requiredErrorMessage = `${this.config.label} is required`;

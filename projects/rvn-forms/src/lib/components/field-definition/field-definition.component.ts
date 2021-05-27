@@ -35,7 +35,6 @@ export class FieldDefinitionComponent implements OnInit {
   fieldNameCompConfig: RvnInputInput = { label: 'Name', placeholder: 'Minimum 3 characters', required: true };
   fieldTypeCompConfig: RvnSelectInput = { label: 'Type', placeholder: 'Select', required: true, selectOptions: null };
   fieldRequiredCompConfig: RvnToggleInput = { label: "Required", required: false };
-  typeRenderer: any;
 
 
   ngOnInit(): void {

@@ -113,6 +113,21 @@ export class RvnTableComponent implements OnInit {
   initDone: boolean = false;
   columnsToDisplayNames: string[];
 
+  defaultConfig: RvnTableInput = {
+    data: [],
+    columnsToDisplay: [],
+    enableFilter: true,
+    useComponentFilter: true,
+    filterInputFC: new FormControl(null),
+    stickColumnsAtStartIndexes: [],
+    stickColumnsAtEndIndexes: [],
+    noDataMessage: "No data !",
+    noDataOnFilterMessage: "No data matching the filter!",
+    expandedRowTemplate: null,
+    enablePagination: false,
+    pageOptions: [10, 25, 50]
+  }
+
   ngOnInit(): void {
 
     this.handleConfigSetup();
@@ -126,6 +141,9 @@ export class RvnTableComponent implements OnInit {
   }
 
   handleConfigSetup() {
+    //TODO: test defaults;
+    //this.config = {...this.defaultConfig, ...this.config};
+    
     if (isNullOrUndefined(this.config)) this.config = { columnsToDisplay: [], data: [] }
     if (isNullOrUndefined(this.config.data)) this.config.data = [];
     if (isNullOrUndefined(this.config.columnsToDisplay)) this.config.columnsToDisplay = [];

@@ -57,11 +57,27 @@ export class RvnComponentDialogComponent implements OnInit {
     private dynamicCompoentService: DynamicComponentService
   ) { }
 
-  config: RvnComponentDialogInput;
   @ViewChild("componentAnchorPoint", { read: ViewContainerRef }) componentAnchorPoint: ViewContainerRef;
   @Output() componentRef: EventEmitter<ComponentRef<any>> = new EventEmitter();
+  config: RvnComponentDialogInput;
+  defaultConfig: RvnComponentDialogInput = {
+    title: "",
+    component: null,
+    componentInputs: [],
+    showActionBtns: false,
+    showOnlyPrimaryButton: false,
+    primaryButtonMessage: "Yes",
+    primaryButtonConfig: { type: 'tertiary' },
+    secondaryButtonMessage: "No",
+    secondaryButtonConfig: { type: 'tertiary', color: 'warn' },
 
+  }
+  
   ngOnInit() {
+
+    //TODO: test defaults
+    //this.config = { ...this.defaultConfig, ...this.data };
+    
     this.config = this.data;
     if (isNullOrUndefined(this.config)) this.config = { component: null, primaryButtonMessage: "yes" };
     if (isNullOrUndefined(this.config.title)) this.config.title = "";
