@@ -37,6 +37,7 @@ import { FieldDefinitionComponent } from './components/field-definition/field-de
 import { FormDefinitionComponent } from './components/form-definition/form-definition.component';
 import { RecordDeleteConfirmComponent } from './components/record-delete-confirm/record-delete-confirm.component';
 import { RvnComponentsModule } from '@abdulraheemabid/rvn-pkg-ng-core';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 
@@ -85,6 +86,7 @@ import { RvnComponentsModule } from '@abdulraheemabid/rvn-pkg-ng-core';
     CommonModule,
     RvnComponentsModule,
     ReactiveFormsModule,
+    DragDropModule 
   ],
   exports: [
     ChooseUiControlComponent,
